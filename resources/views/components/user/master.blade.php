@@ -8,8 +8,9 @@
         {{ $title ?? 'Welcome | Reporter'}}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <meta name="description" content="This is meta description">
-    <meta name="author" content="Themefisher">
+    <meta name="description"
+        content="Repoter is a blogging website. Its a solo project based application Made by Mehedi Hasan">
+    <meta name="author" content="Mehedi Hasan">
     <link rel="shortcut icon" href="/user/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="/user/images/favicon.png" type="image/x-icon">
 
