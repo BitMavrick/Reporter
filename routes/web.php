@@ -16,3 +16,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.index');
 });
+
+Route::get('article/', function () {
+    return view('user.article');
+});
+
+Route::get('404/', function () {
+    return view('user.404');
+});
+
+Route::get('category/', function () {
+    return view('user.category');
+});
+
+Route::get('about/', function () {
+    return view('user.about');
+});
+
+Route::get('privacy/', function () {
+    return view('user.privacy-policy');
+});
+
+Route::get('contact/', function () {
+    return view('user.contact');
+});
