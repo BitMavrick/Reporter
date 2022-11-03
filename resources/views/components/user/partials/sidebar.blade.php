@@ -1,18 +1,29 @@
 <div class="col-lg-4">
     <div class="widget-blocks">
         <div class="row">
-
+            @if(Auth::user())
             <div class="col-lg-12">
                 <div class="widget">
                     <a href="{{ route('google.auth') }}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
+                            Welcome, {{ Auth::user()->name }}
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            @else
+            <div class="col-lg-12">
+                <div class="widget">
+                    <a href="{{ route('google.auth') }}">
+                        <div class="widget-body col-lg-12 btn btn-sm btn-outline-secondary">
                             Sign in with Google
                         </div>
                     </a>
 
                 </div>
             </div>
-
+            @endif
 
             <div class="col-lg-12">
                 <div class="widget">
