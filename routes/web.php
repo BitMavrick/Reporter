@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\DefaultController;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/dashboard', function () {
@@ -41,14 +42,8 @@ Route::get('contact/', function () {
     return view('user.contact');
 });
 
-Route::get('super/', function () {
-    return view('admin.index');
-});
-
-Route::get('super/users/', function () {
-    return view('admin.users');
-});
-
+Route::get('super/', [AdminController::class, 'home'])->name('super.home');
+Route::get('super/users/', [AdminController::class, 'users'])->name('super.users');
 
 
 

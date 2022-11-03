@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="footer">
-            <p>2018 © Admin Board. - <a href="#">example.com</a></p>
+            <p>2022 © Admin Panel. - <a href="#">Mehedi Hasan</a></p>
         </div>
     </div>
 </div>

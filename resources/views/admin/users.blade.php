@@ -52,41 +52,29 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($users as $user)
+
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>reporter@0101</td>
-                                                    <td>Mehedi Hasan</td>
-                                                    <td>email.mehedi.bd@gmail.com</td>
-                                                    <td><span class="badge badge-success">Admin</span></td>
+                                                    <th scope="row">{{$user->id}}</th>
+                                                    <td>{{$user->username}}</td>
+                                                    <td>{{$user->name}}</td>
+                                                    <td>{{$user->email}}</td>
+                                                    <td>
+                                                        @if ($user->is_active == 1)
+                                                        <span class="badge badge-success">Admin</span>
+                                                        @else
+                                                        <span class="badge badge-secondary">User</span>
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         <a href="#" class="btn btn-primary btn-sm">Update</a>
                                                         <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                                     </td>
                                                 </tr>
 
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>reporter@0101</td>
-                                                    <td>Mehedi Hasan</td>
-                                                    <td>email.mehedi.bd@gmail.com</td>
-                                                    <td><span class="badge badge-success">Admin</span></td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-primary btn-sm">Update</a>
-                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                                    </td>
-                                                </tr>
+                                                @endforeach
 
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>reporter@0101</td>
-                                                    <td>Mehedi Hasan</td>
-                                                    <td>email.mehedi.bd@gmail.com</td>
-                                                    <td><span class="badge badge-secondary">User</span></td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-primary btn-sm">Update</a>
-                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                                    </td>
-                                                </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
