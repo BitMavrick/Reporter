@@ -41,6 +41,17 @@ Route::get('contact/', function () {
     return view('user.contact');
 });
 
+Route::get('super/', function () {
+    return view('admin.index');
+});
+
+Route::get('super/users/', function () {
+    return view('admin.users');
+});
+
+
+
+
 Route::fallback([DefaultController::class, 'error']);
 
 require __DIR__ . '/auth.php';
