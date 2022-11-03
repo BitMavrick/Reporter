@@ -4,7 +4,7 @@
 
             <div class="col-lg-12">
                 <div class="widget">
-                    <a href="#">
+                    <a href="{{ route('google.auth') }}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
                             Sign in with Google
                         </div>
