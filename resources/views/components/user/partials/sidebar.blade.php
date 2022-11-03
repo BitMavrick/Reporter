@@ -1,6 +1,19 @@
 <div class="col-lg-4">
     <div class="widget-blocks">
         <div class="row">
+
+            <div class="col-lg-12">
+                <div class="widget">
+                    <a href="#">
+                        <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
+                            Sign in with Google
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+
             <div class="col-lg-12">
                 <div class="widget">
                     <div class="widget-body">
