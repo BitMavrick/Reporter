@@ -10,6 +10,7 @@
     <title>
         {{ $title ?? 'Admin | Reporter'}}
     </title>
+
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
