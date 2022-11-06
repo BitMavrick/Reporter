@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('video_link')->nullable();
             $table->timestamps();
 
-            $table->foreign('owner')->references('username')->on('users');
+            $table->foreign('owner')->references('username')->on('users')->cascadeOnDelete();
             $table->foreign('tag')->references('name')->on('tags');
         });
     }
