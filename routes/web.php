@@ -30,6 +30,10 @@ Route::get('category/', function () {
     return view('user.category');
 });
 
+Route::get('profile/', function () {
+    return view('user.profile');
+});
+
 Route::get('about/', function () {
     return view('user.about');
 });
