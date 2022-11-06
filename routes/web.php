@@ -4,14 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Authentication Routes
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google.auth');
 Route::get('auth/callback::google', [GoogleAuthController::class, 'callbackGoogle']);
+
+// Profile Routes
+Route::get('{username}/', [ProfileController::class, 'profile'])->name('profile');
 
 
 Route::get('/', function () {
@@ -28,10 +33,6 @@ Route::get('404/', function () {
 
 Route::get('category/', function () {
     return view('user.category');
-});
-
-Route::get('profile/', function () {
-    return view('user.profile');
 });
 
 Route::get('about/', function () {

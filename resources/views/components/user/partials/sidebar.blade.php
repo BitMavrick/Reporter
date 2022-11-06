@@ -4,7 +4,7 @@
             @if(Auth::user())
             <div class="col-lg-12">
                 <div class="widget">
-                    <a href="{{ route('google.auth') }}">
+                    <a href="{{ route('profile', Auth::user()->username) }}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
                             Welcome, {{ Auth::user()->name }}
                         </div>
