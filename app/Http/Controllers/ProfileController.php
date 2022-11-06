@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\User;
 
+
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -17,6 +18,7 @@ class ProfileController extends Controller
             return redirect()->route('404');
         }
 
+        View()->share('user', $user);
         return view('user.profile', compact('user'));
     }
 }

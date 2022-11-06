@@ -20,7 +20,7 @@
                     <div class="col-lg-8 mx-auto mb-5 mb-lg-0">
                         <img loading="lazy" decoding="async" src="/user/images/author.jpg" class="img-fluid w-100 mb-4"
                             alt="Author Image">
-                        <h1 class="mb-4">About {{$user->name}}</h1>
+                        <h1 class="mb-4">About {{$user->email}}</h1>
                         <div class="content">
                             <p>Hello, I&rsquo;m Hootan Safiyari. A Content writter, Developer and Story teller. Working
                                 as a Content writter at CoolTech Agency. Quam nihil enim maxime corporis cumque totam
@@ -101,8 +101,9 @@
                     </div>
 
                     <!-- Side bar will be here -->
-                    <x-user.partials.sidebar />
+                    <!-- <x-user.partials.sidebar /> -->
 
+                    @include('components.user.partials.sidebar', ['login_title'=>'Login'])
 
 
 
