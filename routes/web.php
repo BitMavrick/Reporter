@@ -16,7 +16,7 @@ Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('goog
 Route::get('auth/callback::google', [GoogleAuthController::class, 'callbackGoogle']);
 
 // Profile Routes
-Route::get('{username}/', [ProfileController::class, 'profile'])->name('profile');
+Route::get('profile/{username}/', [ProfileController::class, 'profile'])->name('profile');
 
 
 Route::get('/', function () {
@@ -27,9 +27,7 @@ Route::get('article/', function () {
     return view('user.article');
 });
 
-Route::get('404/', function () {
-    return view('user.404');
-});
+
 
 Route::get('category/', function () {
     return view('user.category');
@@ -51,7 +49,9 @@ Route::get('super/', [AdminController::class, 'home'])->name('super.home');
 Route::get('super/users/', [AdminController::class, 'users'])->name('super.users');
 
 
-
+Route::get('404/', function () {
+    return view('user.404');
+})->name('404');
 Route::fallback([DefaultController::class, 'error']);
 
 require __DIR__ . '/auth.php';

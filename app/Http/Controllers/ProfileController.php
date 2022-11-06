@@ -13,6 +13,10 @@ class ProfileController extends Controller
     {
         $user = User::where('username', $username)->first();
 
+        if (!$user) {
+            return redirect()->route('404');
+        }
+
         return view('user.profile', compact('user'));
     }
 }
