@@ -18,7 +18,7 @@ class ProfileController extends Controller
             return redirect()->route('404');
         }
 
-        View()->share('user', $user);
+        View()->share('profile_data', $user);
         return view('user.profile', compact('user'));
     }
 }

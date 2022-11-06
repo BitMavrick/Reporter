@@ -25,12 +25,13 @@
             </div>
             @endif
 
+            @if(isset($profile_data))
             <div class="col-lg-12">
                 <div class="widget">
                     <div class="widget-body">
                         <img loading="lazy" decoding="async" src="/user/images/author.jpg" alt="About Me"
                             class="w-100 author-thumb-sm d-block">
-                        <h2 class="widget-title my-3">Hootan Safiyari</h2>
+                        <h2 class="widget-title my-3">Hootan Safiyari {{ $profile_data->username }} </h2>
                         <p class="mb-3 pb-2">Hello, I’m Hootan Safiyari. A Content writter,
                             Developer and Story teller. Working as a Content writter at CoolTech
                             Agency. Quam nihil …</p> <a href="about.html" class="btn btn-sm btn-outline-primary">Know
@@ -38,6 +39,24 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="col-lg-12">
+                <div class="widget">
+                    <div class="widget-body">
+                        <img loading="lazy" decoding="async" src="/user/images/author.jpg" alt="About Me"
+                            class="w-100 author-thumb-sm d-block">
+                        <h2 class="widget-title my-3">Hootan Safiyari </h2>
+                        <p class="mb-3 pb-2">Hello, I’m Hootan Safiyari. A Content writter,
+                            Developer and Story teller. Working as a Content writter at CoolTech
+                            Agency. Quam nihil …</p> <a href="about.html" class="btn btn-sm btn-outline-primary">Know
+                            More</a>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+
+
             <div class="col-lg-12 col-md-6">
                 <div class="widget">
                     <h2 class="section-title mb-3">Recommended</h2>
