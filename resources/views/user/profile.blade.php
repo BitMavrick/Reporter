@@ -33,7 +33,7 @@
 
                         <div class="row no-gutters-lg">
                             <div class="col-12">
-                                <h2 class="section-title">Popular Articles</h2>
+                                <h2 class="section-title">Recent Articles</h2>
                             </div>
                             <div class="col-lg-12 mb-5 mb-lg-0">
                                 <div class="row">

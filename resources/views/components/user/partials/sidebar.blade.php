@@ -41,17 +41,26 @@
                 <div class="widget">
                     <div class="widget-body">
 
-                        <h3>{{ $profile_data->name }}</h3>
-                        <p>
-                        <div class="d-inline">
-                            <i class="las la-lg la-envelope"></i>
-                            {{ $profile_data->profile->mail }}
-                        </div>
-                        </p>
+
+
+                        <h3 class="d-inline">
+                            <img class="mr-2" style="max-width:20%;" src="{{$profile_data->avatar}}"
+                                alt="Owner primary image">
+                            {{ $profile_data->name }}
+                        </h3>
+
+
+
                         <p>
                         <div class="d-inline">
                             <i class="las la-lg la-map-marker-alt"></i>
                             {{ $profile_data->profile->address }}
+                        </div>
+                        </p>
+                        <p>
+                        <div class="d-inline">
+                            <i class="las la-lg la-envelope"></i>
+                            {{ $profile_data->profile->mail }}
                         </div>
                         </p>
                         <p>
