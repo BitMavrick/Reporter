@@ -42,10 +42,30 @@
                     <div class="widget-body">
 
                         <h3>{{ $profile_data->name }}</h3>
-                        <p>Mail: {{ $profile_data->profile->mail }} <br>
-                            Address: {{ $profile_data->profile->address }} <br>
-                            Occupation: {{ $profile_data->profile->occupation }} <br>
-                            Twitter: {{ $profile_data->profile->twitter_handle }} <br>
+                        <p>
+                        <div class="d-inline">
+                            <i class="las la-lg la-envelope"></i>
+                            {{ $profile_data->profile->mail }}
+                        </div>
+                        </p>
+                        <p>
+                        <div class="d-inline">
+                            <i class="las la-lg la-map-marker-alt"></i>
+                            {{ $profile_data->profile->address }}
+                        </div>
+                        </p>
+                        <p>
+                        <div class="d-inline">
+                            <i class="las la-lg la-industry"></i>
+                            {{ $profile_data->profile->occupation }}
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="d-inline">
+                            <i class="lab la-lg la-twitter"></i>
+                            {{ $profile_data->profile->twitter_handle }}
+                        </div>
                         </p>
 
 
