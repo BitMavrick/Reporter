@@ -28,7 +28,15 @@
                 <div class="widget">
                     <a href="{{ route('google.auth') }}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-secondary">
-                            Sign in with Google
+
+                            <div class="row justify-content-center ">
+                                <i class="fab fa-2x fa-google mr-1"></i>
+                                <span class="m-1">Sign In with Google</span>
+                            </div>
+
+
+
+
                         </div>
                     </a>
 

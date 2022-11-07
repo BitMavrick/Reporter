@@ -27,6 +27,10 @@
     <!-- Line Awesome -->
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6d6a33e717.js" crossorigin="anonymous"></script>
+
     <!-- # CSS Plugins -->
     <link rel="stylesheet" href="/user/plugins/bootstrap/bootstrap.min.css">
 
