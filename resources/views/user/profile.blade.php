@@ -4,8 +4,6 @@
         {{ $title ?? 'Profile | Reporter'}}
     </x-slot>
 
-    <!-- @include('components.user.partials.sidebar', ['title' => $user->username]) -->
-
     <x-user.partials.navbar />
 
     <main>
@@ -42,7 +40,7 @@
                                 voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio
                                 vel ipsum excepturi tempore reiciendis id quidem.</p>
                         </div>
-
+                        <a href="about.html" class="btn btn-sm btn-outline-danger mt-4">Sign out</a>
                         <hr>
 
                         <div class="row no-gutters-lg">
