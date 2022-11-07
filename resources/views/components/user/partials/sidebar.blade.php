@@ -40,9 +40,16 @@
             <div class="col-lg-12">
                 <div class="widget">
                     <div class="widget-body">
-                        Name : {{ $profile_data->name }}
 
-                        <br>
+                        <h3>{{ $profile_data->name }}</h3>
+                        <p>Mail: {{ $profile_data->profile->mail }} <br>
+                            Address: {{ $profile_data->profile->address }} <br>
+                            Occupation: {{ $profile_data->profile->occupation }} <br>
+                            Twitter: {{ $profile_data->profile->twitter_handle }} <br>
+                        </p>
+
+
+
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <a href="about.html" class="btn btn-sm btn-outline-warning">Edit Profile</a>
                         @endif
