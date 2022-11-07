@@ -1,7 +1,18 @@
 <div class="col-lg-4">
     <div class="widget-blocks">
         <div class="row">
-            @if(Auth::user())
+            @if(Auth::user() && isset($profile_data) && Auth::user()->username == $profile_data->username)
+            <div class="col-lg-12">
+                <div class="widget">
+                    <a href="{{ route('profile', Auth::user()->username) }}">
+                        <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
+                            Create a New Blog
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            @elseif(Auth::user())
             <div class="col-lg-12">
                 <div class="widget">
                     <a href="{{ route('profile', Auth::user()->username) }}">
@@ -29,13 +40,12 @@
             <div class="col-lg-12">
                 <div class="widget">
                     <div class="widget-body">
-                        <img loading="lazy" decoding="async" src="/user/images/author.jpg" alt="About Me"
-                            class="w-100 author-thumb-sm d-block">
-                        <h2 class="widget-title my-3">Hootan Safiyari {{ $profile_data->profile->occupation }} </h2>
-                        <p class="mb-3 pb-2">Hello, I’m Hootan Safiyari. A Content writter,
-                            Developer and Story teller. Working as a Content writter at CoolTech
-                            Agency. Quam nihil …</p> <a href="about.html" class="btn btn-sm btn-outline-primary">Know
-                            More</a>
+                        Name : {{ $profile_data->name }}
+
+                        <br>
+                        @if(Auth::user() && Auth::user()->username == $profile_data->username)
+                        <a href="about.html" class="btn btn-sm btn-outline-warning">Edit Profile</a>
+                        @endif
                     </div>
                 </div>
             </div>
