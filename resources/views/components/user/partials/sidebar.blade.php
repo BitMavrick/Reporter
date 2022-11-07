@@ -6,7 +6,10 @@
                 <div class="widget">
                     <a href="{{ route('profile', Auth::user()->username) }}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
-                            Create a New Blog
+                            <div class="row justify-content-center ">
+                                <i class="fa-solid fa-2x fa-plus mr-2"></i>
+                                <span class="m-1">Create a new Blog</span>
+                            </div>
                         </div>
                     </a>
 
@@ -17,7 +20,11 @@
                 <div class="widget">
                     <a href="{{ route('profile', Auth::user()->username) }}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
-                            Welcome, {{ Auth::user()->name }}
+
+                            <div class="row justify-content-center ">
+                                <i class="fa-solid fa-2x fa-id-card-clip mr-1"></i>
+                                <span class="m-1">{{ Auth::user()->name }}</span>
+                            </div>
                         </div>
                     </a>
 
@@ -33,10 +40,6 @@
                                 <i class="fab fa-2x fa-google mr-1"></i>
                                 <span class="m-1">Sign In with Google</span>
                             </div>
-
-
-
-
                         </div>
                     </a>
 
@@ -52,40 +55,49 @@
 
 
                         <h3 class="d-inline">
+                            @if($profile_data->avatar)
                             <img class="mr-2" style="max-width:20%;" src="{{$profile_data->avatar}}"
                                 alt="Owner primary image">
+                            @endif
                             {{ $profile_data->name }}
                         </h3>
 
 
-
+                        @if($profile_data->profile->address)
                         <p>
                         <div class="d-inline">
                             <i class="las la-lg la-map-marker-alt"></i>
                             {{ $profile_data->profile->address }}
                         </div>
                         </p>
+                        @endif
+
+                        @if($profile_data->profile->mail)
                         <p>
                         <div class="d-inline">
                             <i class="las la-lg la-envelope"></i>
                             {{ $profile_data->profile->mail }}
                         </div>
                         </p>
+                        @endif
+
+                        @if($profile_data->profile->occupation)
                         <p>
                         <div class="d-inline">
                             <i class="las la-lg la-industry"></i>
                             {{ $profile_data->profile->occupation }}
                         </div>
                         </p>
+                        @endif
 
+                        @if($profile_data->profile->twitter_handle)
                         <p>
                         <div class="d-inline">
                             <i class="lab la-lg la-twitter"></i>
                             {{ $profile_data->profile->twitter_handle }}
                         </div>
                         </p>
-
-
+                        @endif
 
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <a href="about.html" class="btn btn-sm btn-outline-warning">Edit Profile</a>
