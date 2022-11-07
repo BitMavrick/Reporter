@@ -40,7 +40,13 @@
                                 voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio
                                 vel ipsum excepturi tempore reiciendis id quidem.</p>
                         </div>
-                        <a href="about.html" class="btn btn-sm btn-outline-danger mt-4">Sign out</a>
+                        @if(Auth::user() && Auth::user()->username == $profile_data->username)
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-outline-danger mt-4">Sign Out</button>
+                        </form>
+
+                        @endif
                         <hr>
 
                         <div class="row no-gutters-lg">
@@ -99,11 +105,7 @@
                     </div>
 
                     <!-- Side bar will be here -->
-                    <!-- <x-user.partials.sidebar /> -->
-
-                    @include('components.user.partials.sidebar', ['login_title'=>'Login'])
-
-
+                    <x-user.partials.sidebar />
 
                 </div>
 
