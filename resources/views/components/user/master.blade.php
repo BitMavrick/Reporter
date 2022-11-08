@@ -52,8 +52,27 @@
     <script src="/user/plugins/jquery/jquery.min.js"></script>
     <script src="/user/plugins/bootstrap/bootstrap.min.js"></script>
 
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
     <!-- Main Script -->
     <script src="/user/js/script.js"></script>
+
+    <!-- Ajax Script-->
+    <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        alert();
+    });
+    </script>
 
 </body>
 
