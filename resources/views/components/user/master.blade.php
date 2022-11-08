@@ -11,6 +11,7 @@
     <meta name="description"
         content="Repoter is a blogging website. Its a solo project based application Made by Mehedi Hasan">
     <meta name="author" content="Mehedi Hasan">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="/user/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="/user/images/favicon.png" type="image/x-icon">
 
