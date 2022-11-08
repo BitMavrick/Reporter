@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('google_id')->nullable();
             $table->string('avatar')->nullable();
-            $table->boolean('is_admin')->default(false);
+            $table->char('role')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

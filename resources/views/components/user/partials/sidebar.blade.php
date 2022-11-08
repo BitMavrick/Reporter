@@ -59,7 +59,9 @@
                             <img class="mr-2" style="max-width:20%;" src="{{$profile_data->avatar}}"
                                 alt="Owner primary image">
                             @endif
-                            {{ $profile_data->name }}
+
+                            {{ $profile_data->name }} <span class="text-danger"><i
+                                    class="fa-solid fa-chess-king"></i></span>
                         </h3>
 
 

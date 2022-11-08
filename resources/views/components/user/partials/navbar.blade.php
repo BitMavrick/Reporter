@@ -26,7 +26,7 @@
                             <a class="dropdown-item" href="travel.html">Cruises</a>
                         </div>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="contact.html">About</a>
+                    <li class="nav-item"> <a class="nav-link" href="contact.html">Library</a>
                     </li>
                 </ul>
             </div>

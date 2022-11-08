@@ -60,10 +60,14 @@
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->email}}</td>
                                                     <td>
-                                                        @if ($user->is_active == 1)
-                                                        <span class="badge badge-success">Admin</span>
-                                                        @else
+                                                        @if ($user->role == '0')
                                                         <span class="badge badge-secondary">User</span>
+                                                        @elseif($user->role == '1')
+                                                        <span class="badge badge-danger">Admin</span>
+                                                        @elseif($user->role == '2')
+                                                        <span class="badge badge-success">Verified</span>
+                                                        @elseif($user->role == '3')
+                                                        <span class="badge badge-warning">Banned</span>
                                                         @endif
                                                     </td>
                                                     <td>
