@@ -13,6 +13,6 @@ $.ajaxSetup({
 
 <script>
 $(document).ready(function() {
-    alert('Mehedi Hasan');
+    // alert('Mehedi Hasan');
 });
 </script>

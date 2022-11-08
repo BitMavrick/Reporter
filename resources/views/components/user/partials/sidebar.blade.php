@@ -102,7 +102,8 @@
                         @endif
 
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
-                        <a href="about.html" class="btn btn-sm btn-outline-warning">Edit Profile</a>
+                        <a href="" class="btn btn-sm btn-outline-warning" data-toggle="modal"
+                            data-target="#exampleModalCenter">Edit Profile</a>
                         @endif
                     </div>
                 </div>
@@ -122,8 +123,6 @@
                 </div>
             </div>
             @endif
-
-
 
             <div class="col-lg-12 col-md-6">
                 <div class="widget">

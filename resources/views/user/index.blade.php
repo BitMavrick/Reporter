@@ -22,7 +22,8 @@
                                             <div class="post-info"> <span class="text-uppercase">04 Jun 2021</span>
                                                 <span class="text-uppercase">3 minutes read</span>
                                             </div>
-                                            <img loading="lazy" decoding="async" src="/user/images/post/post-1.jpg" alt="Post Thumbnail" class="w-100">
+                                            <img loading="lazy" decoding="async" src="/user/images/post/post-1.jpg"
+                                                alt="Post Thumbnail" class="w-100">
                                         </div>
                                     </a>
                                     <div class="card-body px-0 pb-1">
@@ -61,6 +62,5 @@
 
 
     <x-user.partials.footer />
-
 
 </x-user.master>

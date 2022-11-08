@@ -5,6 +5,7 @@
     </x-slot>
 
     <x-user.partials.navbar />
+    <x-user.partials.edit_user />
 
     <main>
         <section class="section">
@@ -95,9 +96,8 @@
         </section>
     </main>
 
-
-
     <x-user.partials.footer />
 
+    <x-user.partials.ajax_user />
 
 </x-user.master>
