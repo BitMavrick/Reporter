@@ -1,9 +1,7 @@
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <form action="#" method="POST" id="editProfile">
-        @csrf
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="editUser" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form action="#">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLongTitle">Edit your profile</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -20,7 +18,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
