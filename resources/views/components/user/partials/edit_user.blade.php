@@ -9,6 +9,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="errMsgContainer">
+
+                    </div>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{$profile_data->name}}">
@@ -16,7 +19,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary edit_profile">Save changes</button>
                 </div>
             </form>
         </div>

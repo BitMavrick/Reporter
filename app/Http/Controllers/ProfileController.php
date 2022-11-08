@@ -21,4 +21,17 @@ class ProfileController extends Controller
         View()->share('profile_data', $user);
         return view('user.profile', compact('user'));
     }
+
+    public function update(Request $request)
+    {
+        // Update your profile
+        $request->validate(
+            [
+                'name' => 'required',
+            ],
+            [
+                'name.required' => 'Name is required',
+            ]
+        );
+    }
 }

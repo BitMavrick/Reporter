@@ -21,12 +21,11 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 // Profile Routes
 Route::get('profile/{username}/', [ProfileController::class, 'profile'])->name('profile');
+Route::post('update/', [ProfileController::class, 'update'])->name('update.profile');
 
 Route::get('article/', function () {
     return view('user.article');
 });
-
-
 
 Route::get('category/', function () {
     return view('user.category');

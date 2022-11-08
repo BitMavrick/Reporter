@@ -13,6 +13,28 @@ $.ajaxSetup({
 
 <script>
 $(document).ready(function() {
-    // alert('Mehedi Hasan');
+    $(document).on('click', '.edit_profile', function(e) {
+        e.preventDefault();
+        let name = $('#name').val(); // .id #class - Rememder that
+
+        $.ajax({
+            url: "{{route('update.profile')}}",
+            method: "POST",
+            data: {
+                name: name
+            },
+
+            success: function(res) {
+
+
+            },
+            error: function(err) {
+                let errors = err.responseJSON;
+                $.each(error.errors, function(index, value) {
+                    $('.errMsgContainer').append(value);
+                });
+            }
+        });
+    });
 });
 </script>
