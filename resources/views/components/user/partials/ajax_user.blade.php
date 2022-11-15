@@ -16,12 +16,17 @@ $(document).ready(function() {
     $(document).on('click', '.edit_profile', function(e) {
         e.preventDefault();
         let name = $('#name').val(); // .id #class - Rememder that
+        let _token = $('#_token').val();
+
+        alert(_token);
 
         $.ajax({
             url: "{{route('update.profile')}}",
             method: "POST",
             data: {
-                name: name
+                _token: "{{csrf_token()}}",
+                name: name,
+
             },
 
             success: function(res) {
@@ -35,6 +40,7 @@ $(document).ready(function() {
                 });
             }
         });
+
     });
 });
 </script>

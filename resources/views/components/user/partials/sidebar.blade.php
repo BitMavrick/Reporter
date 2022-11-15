@@ -12,7 +12,6 @@
                             </div>
                         </div>
                     </a>
-
                 </div>
             </div>
             @elseif(Auth::user())
@@ -51,9 +50,6 @@
             <div class="col-lg-12">
                 <div class="widget">
                     <div class="widget-body">
-
-
-
                         <h3 class="d-inline">
                             @if($profile_data->avatar)
                             <img class="mr-2" style="max-width:20%;" src="{{$profile_data->avatar}}"
@@ -63,8 +59,6 @@
                             {{ $profile_data->name }} <span class="text-danger"><i
                                     class="fa-solid fa-chess-king"></i></span>
                         </h3>
-
-
                         @if($profile_data->profile->address)
                         <p>
                         <div class="d-inline">

@@ -1,5 +1,4 @@
 <x-user.master>
-
     <x-slot name="title">
         {{ $title ?? 'Profile | Reporter'}}
     </x-slot>
@@ -77,27 +76,20 @@
                                     </div>
                                     <!-- Article cards will be here -->
                                     <x-user.partials.article-cards />
-
                                     <x-user.partials.pagination />
 
                                 </div>
                             </div>
-                            <!-- Side bar will be here -->
-                            <!-- <x-user.partials.sidebar /> -->
                         </div>
                     </div>
-
                     <!-- Side bar will be here -->
                     <x-user.partials.sidebar />
-
                 </div>
-
             </div>
         </section>
     </main>
 
     <x-user.partials.footer />
-
     <x-user.partials.ajax_user />
 
 </x-user.master>

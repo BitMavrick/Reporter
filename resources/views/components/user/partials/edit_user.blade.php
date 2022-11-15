@@ -1,7 +1,8 @@
 <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="editUser" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form action="#">
+            <form action="" method="POST">
+                @csrf
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLongTitle">Edit your profile</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -10,7 +11,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="errMsgContainer">
-
+                        <input type="hidden" id="_token" value="{{ csrf_token() }}">
                     </div>
                     <div class="form-group">
                         <label for="name">Name</label>
