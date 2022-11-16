@@ -50,3 +50,36 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Update Cover Details</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    @Method('PATCH')
+                    @csrf
+                    <div class="form-group">
+                        <label for="cover">Cover Image</label>
+                        <input type="file" name="twitter_handle" class="form-control" id="cover"
+                            aria-describedby="emailHelp" placeholder="Enter your twitter handle"
+                            value="{{$profile_data->profile->twitter_handle}}">
+                        <small id="emailHelp" class="form-text text-muted">Cover image will be used for showing up
+                            yourself.</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

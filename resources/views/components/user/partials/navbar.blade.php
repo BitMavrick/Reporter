@@ -1,7 +1,8 @@
 <header class="navigation">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light px-0">
-            <a class="navbar-brand order-1 py-0" href="{{ route('home') }}">
+            <a class="navbar-brand order-1 py-0" href="{{ route('home') }}" data-toggle="tooltip" data-placement="top"
+                title="Go to Home">
                 <img loading="prelaod" decoding="async" class="img-fluid" src="/user/images/logo.png"
                     alt="Reporter Hugo">
             </a>
@@ -15,7 +16,8 @@
             </form>
             <div class="collapse navbar-collapse text-center order-lg-2 order-4" id="navigation">
                 <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
-                    <li class="nav-item"> <a class="nav-link" href="about.html">Explore</a>
+                    <li class="nav-item"> <a class="nav-link" href="about.html" data-toggle="tooltip"
+                            data-placement="top" title="Explore the trending articles">Explore</a>
                     </li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +28,9 @@
                             <a class="dropdown-item" href="travel.html">Cruises</a>
                         </div>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="contact.html">Library</a>
+                    <li class="nav-item"> <a class="nav-link" href="contact.html" data-toggle="tooltip"
+                            data-placement="top"
+                            title="Collection of the articles based on the popular topics">Library</a>
                     </li>
                 </ul>
             </div>

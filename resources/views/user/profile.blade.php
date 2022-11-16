@@ -16,16 +16,27 @@
                         </div>
                     </div>
                     <div class="col-lg-8 mx-auto mb-5 mb-lg-0">
-                        <img loading="lazy" decoding="async" src="/user/images/author.jpg" class="img-fluid w-100 mb-4"
-                            alt="Author Image">
-                        <h1 class="mb-4">About {{$user->name}},</h1>
+                        <div class="card-image">
+                            @if(Auth::user() && Auth::user()->username == $profile_data->username)
+                            <div class="post-info">
+                                <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg"><span
+                                        class="text-uppercase">Update
+                                        Cover</span></a>
+                            </div>
+                            @endif
+                            <img loading="lazy" decoding="async" src="/user/images/author.jpg"
+                                class="img-fluid w-100 mb-4" alt="Author Image">
+
+                        </div>
+                        <h1 class="mb-4">About {{$user->name}},</i></h1>
                         <div class="content">
                             <p>{{$user->profile->about_you}}</p>
                         </div>
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-outline-danger mt-4">Sign Out</button>
+                            <button type="submit" class="btn btn-sm btn-outline-danger mt-4" data-toggle="tooltip"
+                                data-placement="top" title="Signing out from your current account">Sign Out</button>
                         </form>
 
                         @endif
