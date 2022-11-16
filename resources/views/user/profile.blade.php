@@ -90,6 +90,6 @@
     </main>
 
     <x-user.partials.footer />
-    <x-user.partials.ajax_user />
+
 
 </x-user.master>

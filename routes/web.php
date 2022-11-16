@@ -50,6 +50,6 @@ Route::get('super/users/', [AdminController::class, 'users'])->name('super.users
 Route::get('404/', function () {
     return view('user.404');
 })->name('404');
-Route::fallback([DefaultController::class, 'error']);
+// Route::fallback([DefaultController::class, 'error']);
 
 require __DIR__ . '/auth.php';

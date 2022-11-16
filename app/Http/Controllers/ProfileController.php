@@ -24,15 +24,10 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
-        // Update your profile
-        $request->validate(
-            [
-                'name' => 'required',
-            ],
-            [
-                'name.required' => 'Name is required',
-            ]
-        );
+        $user = User::where('id', auth()->user()->id)->first();
+        $user->name = $request->name;
+        $user->save();
+
+        return redirect()->route('profile', auth()->user()->username);
     }
 }
