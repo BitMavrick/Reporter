@@ -18,6 +18,29 @@
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{$profile_data->name}}">
                     </div>
+
+                    <div class="form-group">
+                        <label for="Address">Address</label>
+                        <input type="text" name="address" class="form-control" id="Address" aria-describedby="emailHelp"
+                            placeholder="Enter your address" value="{{$profile_data->profile->address}}">
+                        <small id="emailHelp" class="form-text text-muted">Enter where are you from..</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Occupation">Occupation</label>
+                        <input type="text" name="occupation" class="form-control" id="Occupation"
+                            aria-describedby="emailHelp" placeholder="Enter your occupation"
+                            value="{{$profile_data->profile->occupation}}">
+                        <small id="emailHelp" class="form-text text-muted">Enter what are you doing.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Twitter">Twitter</label>
+                        <input type="text" name="twitter_handle" class="form-control" id="Twitter"
+                            aria-describedby="emailHelp" placeholder="Enter your twitter handle"
+                            value="{{$profile_data->profile->twitter_handle}}">
+                        <small id="emailHelp" class="form-text text-muted">For Example: @TheAlter72.</small>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

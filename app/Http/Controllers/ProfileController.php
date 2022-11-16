@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use App\Models\User;
-
-
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -24,9 +22,15 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $user = User::where('id', auth()->user()->id)->first();
+        $user = User::where('username', auth()->user()->username)->first();
+        $profile = Profile::where('username', auth()->user()->username)->first();
         $user->name = $request->name;
+        $profile->address = $request->address;
+        $profile->occupation = $request->occupation;
+        $profile->twitter_handle = $request->twitter_handle;
+
         $user->save();
+        $profile->save();
 
         return redirect()->route('profile', auth()->user()->username);
     }

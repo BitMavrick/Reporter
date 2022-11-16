@@ -24,7 +24,6 @@
                         </div>
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <form action="{{ route('logout') }}" method="POST">
-                            @method('PATCH')
                             @csrf
                             <button type="submit" class="btn btn-sm btn-outline-danger mt-4">Sign Out</button>
                         </form>
