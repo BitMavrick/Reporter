@@ -53,6 +53,7 @@ class GoogleAuthController extends Controller
                 Profile::create([
                     'username' => $username,
                     'mail' => $user->email,
+                    'about_you' => 'Hello, This is ' . $user->name,
                 ]);
 
                 return redirect('/');

@@ -21,7 +21,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 // Profile Routes
 Route::get('profile/{username}/', [ProfileController::class, 'profile'])->name('profile');
-Route::post('update/', [ProfileController::class, 'update'])->name('update.profile');
+Route::patch('update/', [ProfileController::class, 'update'])->name('update.profile');
 
 Route::get('article/', function () {
     return view('user.article');
@@ -50,6 +50,6 @@ Route::get('super/users/', [AdminController::class, 'users'])->name('super.users
 Route::get('404/', function () {
     return view('user.404');
 })->name('404');
-// Route::fallback([DefaultController::class, 'error']);
+Route::fallback([DefaultController::class, 'error']);
 
 require __DIR__ . '/auth.php';

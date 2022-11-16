@@ -2,6 +2,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <form action="{{ route('update.profile') }}" method="POST">
+                @Method('PATCH')
                 @csrf
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLongTitle">Edit your profile</h4>
@@ -11,7 +12,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="errMsgContainer">
-                        <!-- <input type="hidden" id="_token" value="{{ csrf_token() }}"> -->
+
                     </div>
                     <div class="form-group">
                         <label for="name">Name</label>
