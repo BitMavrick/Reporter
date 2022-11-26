@@ -30,7 +30,7 @@
                         </div>
                         <h1 class="mb-4">About {{$user->name}},</i></h1>
                         <div class="content">
-                            <p>{{$user->profile->about_you}}</p>
+                            {!!$user->profile->about_you!!}
                         </div>
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <form action="{{ route('logout') }}" method="POST">
