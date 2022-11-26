@@ -53,6 +53,7 @@ class GoogleAuthController extends Controller
                 Profile::create([
                     'username' => $username,
                     'mail' => $user->email,
+                    'cover_image' => 'cover.jpg',
                     'about_you' => 'Hello, This is ' . $user->name,
                 ]);
 

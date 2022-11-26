@@ -24,7 +24,8 @@
                                         Cover</span></a>
                             </div>
                             @endif
-                            <img loading="lazy" decoding="async" src="/user/images/author.jpg"
+                            <img loading="lazy" decoding="async"
+                                src="/storage/cover_images/{{ $profile_data->profile->cover_image }}"
                                 class="img-fluid w-100 mb-4" alt="Author Image">
 
                         </div>
