@@ -57,7 +57,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Update Cover Details</h3>
+                <h3 class="modal-title" id="exampleModalLabel">Update Cover Information</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -74,6 +74,10 @@
                         <small id="emailHelp" class="form-text text-muted">Cover image will be used for showing up
                             yourself.</small>
                     </div>
+                    <div class="form-group" id="exampleFormControlTextarea1">
+                        <label for="exampleFormControlTextarea1">About Yourself</label>
+                        <textarea class="form-control" id="editor" rows="3"></textarea>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -83,3 +87,11 @@
         </div>
     </div>
 </div>
+
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>

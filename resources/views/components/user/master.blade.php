@@ -36,6 +36,10 @@
 
     <!-- # Main Style Sheet -->
     <link rel="stylesheet" href="/user/css/style.css">
+
+    <!-- ckeditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+
 </head>
 
 <body>
@@ -50,6 +54,8 @@
     <!-- # JS Plugins -->
     <script src="/user/plugins/jquery/jquery.min.js"></script>
     <script src="/user/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+
 
     <!-- Main Script -->
     <script src="/user/js/script.js"></script>
