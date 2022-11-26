@@ -63,21 +63,22 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#">
+                <form action="{{ route('update.cover') }}" method="POST" enctype="multipart/form-data">
                     @Method('PATCH')
                     @csrf
                     <div class="form-group">
                         <label for="cover">Cover Image</label>
-                        <input type="file" name="twitter_handle" class="form-control" id="cover"
-                            aria-describedby="emailHelp" placeholder="Enter your twitter handle"
-                            value="{{$profile_data->profile->twitter_handle}}">
+                        <input type="file" name="cover" class="form-control" id="cover" aria-describedby="emailHelp"
+                            placeholder="Enter your twitter handle" value="{{$profile_data->profile->twitter_handle}}">
                         <small id="emailHelp" class="form-text text-muted">Cover image will be used for showing up
                             yourself.</small>
                     </div>
+
                     <div class="form-group" id="exampleFormControlTextarea1">
                         <label for="exampleFormControlTextarea1">About Yourself</label>
-                        <textarea value='say something' class="form-control" id="exampleFormControlTextarea1"
-                            rows="2">Write Something</textarea>
+                        <textarea value='say something' name="about_you" class="form-control"
+                            id="exampleFormControlTextarea1" placeholder="Write Something about yourself..."
+                            rows="2">{{ $profile_data->profile->about_you}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>

@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 // Profile Routes
 Route::get('profile/{username}/', [ProfileController::class, 'profile'])->name('profile');
 Route::patch('update/', [ProfileController::class, 'update'])->name('update.profile');
+Route::patch('update/cover', [ProfileController::class, 'update_cover'])->name('update.cover');
 
 Route::get('article/', function () {
     return view('user.article');

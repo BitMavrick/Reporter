@@ -34,4 +34,24 @@ class ProfileController extends Controller
 
         return redirect()->route('profile', auth()->user()->username);
     }
+
+    public function update_cover(Request $request)
+    {
+        dd($request->all());
+
+        $user = User::where('username', auth()->user()->username)->first();
+        $profile = Profile::where('username', auth()->user()->username)->first();
+
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover');
+            $cover_name = time() . '.' . $cover->getClientOriginalExtension();
+            $cover->move(public_path('images/cover'), $cover_name);
+            $profile->cover = $cover_name;
+        }
+
+        $user->save();
+        $profile->save();
+
+        return redirect()->route('profile', auth()->user()->username);
+    }
 }
