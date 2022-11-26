@@ -37,8 +37,8 @@
     <!-- # Main Style Sheet -->
     <link rel="stylesheet" href="/user/css/style.css">
 
-    <!-- ckeditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.tiny.cloud/1/749efvi90r0jn8n330bhuobwkxk005r8aapousj70g1no5aq/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
     <!-- # JS Plugins -->
     <script src="/user/plugins/jquery/jquery.min.js"></script>
     <script src="/user/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+
 
 
     <!-- Main Script -->
