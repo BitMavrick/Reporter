@@ -76,14 +76,13 @@
                     </div>
                     <div class="form-group" id="exampleFormControlTextarea1">
                         <label for="exampleFormControlTextarea1">About Yourself</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea value='say something' class="form-control" id="exampleFormControlTextarea1"
+                            rows="2">Write Something</textarea>
                     </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+
         </div>
     </div>
 </div>
@@ -92,6 +91,7 @@
 <script>
 tinymce.init({
     selector: "textarea",
+    height: "300",
     plugins: "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect",
     toolbar: "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
     tinycomments_mode: "embedded",
