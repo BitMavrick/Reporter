@@ -14,7 +14,7 @@
                         <img loading="lazy" decoding="async" src="/user/images/404.png" alt="404" class="img-fluid mb-4"
                             width="500" height="350">
                         <h1 class="mb-4">Page Not Found!</h1>
-                        <a href="index.html" class="btn btn-outline-primary">Back To Home</a>
+                        <a href="{{ route('home') }}" class="btn btn-outline-primary">Back To Home</a>
                     </div>
                 </div>
             </div>

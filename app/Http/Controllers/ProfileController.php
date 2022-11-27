@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -43,6 +44,10 @@ class ProfileController extends Controller
         if ($request->hasFile('cover')) {
             $extension = $request->file('cover')->getClientOriginalExtension();
             $filename = date('Y-m-d') . '_' . time() . '.' . $extension;
+
+            if ($profile->cover_image != 'cover.jpg') {
+                Storage::delete('public/cover_images/' . $profile->cover_image);
+            }
 
             $request->file('cover')->storeAs('public/cover_images', $filename);
             $profile->cover_image = $filename;
