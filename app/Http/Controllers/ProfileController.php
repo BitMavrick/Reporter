@@ -45,14 +45,18 @@ class ProfileController extends Controller
         if ($request->hasFile('cover')) {
             $extension = $request->file('cover')->getClientOriginalExtension();
             $filename = date('Y-m-d') . '_' . time() . '.' . $extension;
-            $image = $request->file('cover');
-
 
             if ($profile->cover_image != 'cover.jpg') {
                 Storage::delete('public/cover_images/' . $profile->cover_image);
             }
 
-            $request->file('cover')->storeAs('public/cover_images', $filename);
+            $image = $request->file('cover');
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1280, 720, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $image_resize->save(storage_path('app/public/cover_images/' . $filename));
             $profile->cover_image = $filename;
         }
 
