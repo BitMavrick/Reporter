@@ -49,6 +49,11 @@ class ProfileController extends Controller
                 Storage::delete('public/cover_images/' . $profile->cover_image);
             }
 
+            // //resize image
+            // $cover = Image::make($request->file('cover'))->resize(1920, 1080, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })->encode($extension);
+
             $request->file('cover')->storeAs('public/cover_images', $filename);
             $profile->cover_image = $filename;
         }
