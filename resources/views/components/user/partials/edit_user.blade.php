@@ -70,8 +70,8 @@
                         <label for="cover">Cover Image</label>
                         <input type="file" name="cover" class="form-control" id="cover" aria-describedby="emailHelp"
                             placeholder="Enter your twitter handle" value="{{$profile_data->profile->twitter_handle}}">
-                        <small id="emailHelp" class="form-text text-muted">Cover image will be used for showing up
-                            yourself.</small>
+                        <small id="emailHelp" class="form-text text-muted">The ideal ratio of cover image is 16:9, The
+                            image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
 
                     <div class="form-group" id="exampleFormControlTextarea1">
