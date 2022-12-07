@@ -37,8 +37,22 @@
     <!-- # Main Style Sheet -->
     <link rel="stylesheet" href="/user/css/style.css">
 
+    <!-- Tags input -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" />
+
+
+
     <script src="https://cdn.tiny.cloud/1/749efvi90r0jn8n330bhuobwkxk005r8aapousj70g1no5aq/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
+
+    <style>
+    #inputTag {
+        color: black !important;
+        background-color: black !important;
+        text-align: center !important;
+    }
+    </style>
 
 </head>
 
@@ -59,6 +73,12 @@
 
     <!-- Main Script -->
     <script src="/user/js/script.js"></script>
+
+    <!-- Tags -->
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="/user/js/script-tag.js"></script>
+
+
 
 </body>
 

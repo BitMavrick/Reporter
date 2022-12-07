@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <input type="file" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">Choose a primary image ...</label>
                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                         <small id="emailHelp" class="form-text text-muted">The ideal ratio of image is 16:9, The
@@ -38,8 +38,10 @@
 
                     <div class="form-group mt-4">
                         <label for="tags">Tags</label>
-                        <input type="email" class="form-control" id="tags" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">Tags will be separated via spaces, You must
+                        <input type="text" class="form-control form-control-lg" name="tags" aria-describedby="emailHelp"
+                            required>
+                        <small id="emailHelp" class="form-text text-muted">Tags will be separated via comma (,). You
+                            must
                             enter at least one tag</small>
                     </div>
 
@@ -50,7 +52,7 @@
                     </div>
 
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                        <input type="file" class="custom-file-input" id="validatedCustomFile">
                         <label class="custom-file-label" for="validatedCustomFile">Choose a secondary image
                             (Optional)</label>
                         <div class="invalid-feedback">Example invalid custom file feedback</div>
@@ -101,6 +103,5 @@
         ],
     });
     </script>
-
 
 </x-user.master>
