@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('owner');
-            $table->string('tag');
             $table->string('main_image');
             $table->string('title', 70);
             $table->longText('introduction', 300);
@@ -26,7 +25,6 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('owner')->references('username')->on('users')->cascadeOnDelete();
-            $table->foreign('tag')->references('name')->on('tags');
         });
     }
 
