@@ -4,7 +4,7 @@
             @if(Auth::user() && isset($profile_data) && Auth::user()->username == $profile_data->username)
             <div class="col-lg-12">
                 <div class="widget">
-                    <a href="{{ route('profile', Auth::user()->username) }}">
+                    <a href="{{ route('blog.create')}}">
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
                             <div class="row justify-content-center ">
                                 <i class="fa-solid fa-2x fa-plus mr-2"></i>

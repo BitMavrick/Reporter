@@ -6,6 +6,7 @@ use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BlogController;
 
 
 Route::get('/dashboard', function () {
@@ -23,6 +24,9 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('profile/{username}/', [ProfileController::class, 'profile'])->name('profile');
 Route::patch('update/', [ProfileController::class, 'update'])->name('update.profile');
 Route::patch('update/cover', [ProfileController::class, 'update_cover'])->name('update.cover');
+
+// Blog Routes
+Route::get('create/', [BlogController::class, 'create'])->name('blog.create');
 
 Route::get('article/', function () {
     return view('user.article');
