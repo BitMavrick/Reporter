@@ -10,4 +10,9 @@ class BlogController extends Controller
     {
         return view('user.create');
     }
+
+    public function creating(Request $request)
+    {
+        dd($request->all());
+    }
 }

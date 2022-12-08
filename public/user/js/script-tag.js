@@ -203,7 +203,7 @@ var input1 = document.querySelector("input[name=tags]"),
             "MUMPS",
             "Mystic Programming L",
         ],
-        blacklist: ["fuck", "shit", "pussy"],
+        blacklist: ["fuck", "shit"],
     });
 
 // toggle Tagify on/off

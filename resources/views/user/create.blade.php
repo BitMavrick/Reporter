@@ -21,7 +21,8 @@
 
                 <h1>Publish a new article,</h1>
 
-                <form class="mt-5">
+                <form class="mt-5" action="{{ route('blog.creating') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="email" class="form-control form-control-lg" id="title" aria-describedby="emailHelp"
