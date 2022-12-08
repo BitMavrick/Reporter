@@ -26,7 +26,11 @@
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class="form-control form-control-lg" id="title"
-                            aria-describedby="emailHelp" placeholder="Enter the title of your article here">
+                            aria-describedby="emailHelp" maxlength="100" value="{{ old('title') }}"
+                            placeholder="Enter the title of your article here">
+                        @error('title')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="form-group">
@@ -42,13 +46,15 @@
                         <input type="text" class="form-control form-control-lg" name="tags" aria-describedby="emailHelp"
                             required>
                         <small id="emailHelp" class="form-text text-muted">Tags will be separated via comma (,). You
-                            must
-                            enter at least one tag</small>
+                            must enter at least one tag</small>
+                        @error('tags')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="form-group mt-4">
                         <label for="intro">Introduction</label>
-                        <textarea class="form-control" name="introduction" id="intro" rows="3"
+                        <textarea class="form-control" name="introduction" id="intro" rows="5" maxlength="1000"
                             placeholder="Write an overview of your article ..."></textarea>
                     </div>
 
@@ -102,6 +108,13 @@
             },
         ],
     });
+    </script>
+
+
+    <!-- Character counter -->
+    <script src="https://unpkg.com/short-and-sweet/dist/short-and-sweet.min.js"></script>
+    <script>
+    shortAndSweet("textarea, input");
     </script>
 
 </x-user.master>
