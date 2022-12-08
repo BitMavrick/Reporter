@@ -8,7 +8,11 @@ class BlogController extends Controller
 {
     public function create()
     {
-        return view('user.create');
+        if (auth()->user()) {
+            return view('user.create');
+        } else {
+            return redirect()->route('404');
+        }
     }
 
     public function creating(Request $request)

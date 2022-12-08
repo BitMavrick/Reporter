@@ -21,19 +21,19 @@
 
                 <h1>Publish a new article,</h1>
 
-                <form class="mt-5" action="{{ route('blog.creating') }}" method="POST">
+                <form class="mt-5" action="{{ route('blog.creating') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="email" class="form-control form-control-lg" id="title" aria-describedby="emailHelp"
-                            placeholder="Enter the title of your article here">
+                        <input type="text" name="title" class="form-control form-control-lg" id="title"
+                            aria-describedby="emailHelp" placeholder="Enter the title of your article here">
                     </div>
 
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
-                        <label class="custom-file-label" for="validatedCustomFile">Choose a primary image ...</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
-                        <small id="emailHelp" class="form-text text-muted">The ideal ratio of image is 16:9, The
+                    <div class="form-group">
+                        <label for="cover">Primary Image</label>
+                        <input type="file" name="main_image" class="form-control" id="cover"
+                            aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">The ideal ratio of primary image is 16:9, The
                             image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
 
@@ -48,27 +48,27 @@
 
                     <div class="form-group mt-4">
                         <label for="intro">Introduction</label>
-                        <textarea class="form-control" id="intro" rows="3"
-                            placeholder="Write an overview of your article"></textarea>
+                        <textarea class="form-control" name="introduction" id="intro" rows="3"
+                            placeholder="Write an overview of your article ..."></textarea>
                     </div>
 
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile">
-                        <label class="custom-file-label" for="validatedCustomFile">Choose a secondary image
-                            (Optional)</label>
-                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    <div class="form-group">
+                        <label for="cover">Secondary Image (Optional)</label>
+                        <input type="file" name="secondary_image" class="form-control" id="cover"
+                            aria-describedby="emailHelp">
                         <small id="emailHelp" class="form-text text-muted">The ideal ratio of image is 16:9, The
                             image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
 
                     <div class="form-group mt-4">
                         <label for="des">Description</label>
-                        <textarea class="form-control" id="des" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="des" rows="3"
+                            placeholder="Start writing your article ..."></textarea>
                     </div>
 
                     <div class="form-group mt-4">
                         <label for="youtube">Youtube Video Link (Optional)</label>
-                        <input type="email" class="form-control" id="tags" aria-describedby="emailHelp"
+                        <input type="text" name="video_link" class="form-control" id="tags" aria-describedby="emailHelp"
                             placeholder="Paste the video link here ...">
                     </div>
 
@@ -79,7 +79,6 @@
 
             </div>
         </section>
-
 
     </main>
 
