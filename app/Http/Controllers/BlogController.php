@@ -21,6 +21,11 @@ class BlogController extends Controller
         }
     }
 
+    public function blog(Request $request)
+    {
+        return view('user.article');
+    }
+
     public function creating(Request $request)
     {
         // REST Validation
@@ -89,7 +94,6 @@ class BlogController extends Controller
             $blog->secondary_image = $filename;
         }
 
-
         // create & Saving the blog
         $blog->title = $request->title;
         $blog->introduction = $request->introduction;
@@ -97,16 +101,27 @@ class BlogController extends Controller
         $blog->owner = auth()->user()->username;
         $blog->save();
 
-
-
-
         // create & Saving the tags
         for ($i = 0; $i < count($tags); $i++) {
             $tag = new Tag;
-            $tag->name = $tags[$i];
-            $tag->save();
+            if ($tag->where('name', $tags[$i])->exists()) {
+            } else {
+                $tag->name = $tags[$i];
+                $tag->save();
+            }
+
+            $blog_tag = new Blog_tag;
+            $blog_tag->blog_id = $blog->id;
+            $blog_tag->tag_name = $tags[$i];
+            $blog_tag->save();
         }
 
-        dd($blog->id);
+        // create & Saving the user_blog
+        $user_blog = new User_blog;
+        $user_blog->blog_id = $blog->id;
+        $user_blog->user_username = auth()->user()->username;
+        $user_blog->save();
+
+        return redirect()->route('blog', $blog->id);
     }
 }

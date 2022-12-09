@@ -28,10 +28,7 @@ Route::patch('update/cover', [ProfileController::class, 'update_cover'])->name('
 // Blog Routes
 Route::get('create/', [BlogController::class, 'create'])->name('blog.create');
 Route::post('creating/', [BlogController::class, 'creating'])->name('blog.creating');
-
-Route::get('article/', function () {
-    return view('user.article');
-});
+Route::get('article/{id}/', [BlogController::class, 'blog'])->name('blog');
 
 Route::get('category/', function () {
     return view('user.category');
