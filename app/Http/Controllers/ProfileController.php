@@ -56,6 +56,11 @@ class ProfileController extends Controller
                 $constraint->aspectRatio();
             });
 
+            /* Tips:
+            So I learned that if this method raised an error like cant save on that route,
+            I just have you to create folder manually. EX. storage/app/public/blog_images
+            thats it.
+            */
             $image_resize->save(storage_path('app/public/cover_images/' . $filename));
             $profile->cover_image = $filename;
         }
