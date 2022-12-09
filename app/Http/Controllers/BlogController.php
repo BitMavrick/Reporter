@@ -9,6 +9,7 @@ use App\Models\Blog_tag;
 use App\Models\User_blog;
 use App\Models\User;
 use App\Models\Tag;
+use App\Models\profile;
 
 class BlogController extends Controller
 {
@@ -26,7 +27,11 @@ class BlogController extends Controller
         if (Blog::where('id', $request->id)->exists()) {
             $blog = Blog::where('id', $request->id)->first();
             $tags = Blog_tag::where('blog_id', $blog->id)->get();
+            $user = User::where('username', $blog->owner)->first();
+            $profile = profile::where('username', $blog->owner)->first();
 
+            View()->share('writter', $user);
+            View()->share('profile', $profile);
             View()->share('blog', $blog);
             View()->share('tags', $tags);
 

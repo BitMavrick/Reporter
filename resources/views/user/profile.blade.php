@@ -29,6 +29,67 @@
                                 class="img-fluid w-100 mb-4" alt="Author Image">
 
                         </div>
+
+
+                        <div class="widget">
+                            <div class="widget-body">
+                                <h3 class="d-inline">
+                                    @if($profile_data->avatar)
+                                    <img class="mr-2" style="max-width:20%;" src="{{$profile_data->avatar}}"
+                                        alt="Owner primary image">
+                                    @endif
+
+                                    {{ $profile_data->name }} <span class="text-danger"><i
+                                            class="fa-solid fa-chess-king"></i></span>
+                                </h3>
+                                @if($profile_data->profile->address)
+                                <p>
+                                <div class="d-inline">
+                                    <i class="las la-lg la-map-marker-alt"></i>
+                                    {{ $profile_data->profile->address }}
+                                </div>
+                                </p>
+                                @endif
+
+                                @if($profile_data->profile->mail)
+                                <p>
+                                <div class="d-inline">
+                                    <i class="las la-lg la-envelope"></i>
+                                    {{ $profile_data->profile->mail }}
+                                </div>
+                                </p>
+                                @endif
+
+                                @if($profile_data->profile->occupation)
+                                <p>
+                                <div class="d-inline">
+                                    <i class="las la-lg la-industry"></i>
+                                    {{ $profile_data->profile->occupation }}
+                                </div>
+                                </p>
+                                @endif
+
+                                @if($profile_data->profile->twitter_handle)
+                                <p>
+                                <div class="d-inline">
+                                    <i class="lab la-lg la-twitter"></i>
+                                    {{ $profile_data->profile->twitter_handle }}
+                                </div>
+                                </p>
+                                @endif
+
+                                @if(Auth::user() && Auth::user()->username == $profile_data->username)
+
+                                <a href="" class="btn btn-sm btn-outline-warning" data-toggle="modal"
+                                    data-target="#editUser">Edit Profile</a>
+                                @endif
+
+                            </div>
+                        </div>
+
+                        <hr>
+
+
                         <h1 class="mb-4">About {{$user->name}},</i></h1>
                         <div class="content">
                             {!!$user->profile->about_you!!}

@@ -14,6 +14,7 @@
                         <article>
                             <img loading="lazy" decoding="async" src="/storage/blog_images/{{ $blog->main_image }}"
                                 alt="Post Thumbnail" class="w-100">
+
                             <ul class="post-meta mb-2 mt-4">
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -26,6 +27,18 @@
                                     </svg> <span>29 May, 2021</span>
                                 </li>
                             </ul>
+
+                            <br>
+
+                            <h3 class="d-inline">
+                                @if($writter->avatar)
+                                <img class="mr-2" style="max-width:7%;" src="{{$writter->avatar}}"
+                                    alt="Owner primary image">
+                                @endif
+
+                                {{ $writter->name }} <span class="text-danger"><i
+                                        class="fa-solid fa-chess-king"></i></span>
+                            </h3>
                             <h1 class="my-3">{{ $blog->title }}</h1>
 
                             <ul class="post-meta mb-4">
