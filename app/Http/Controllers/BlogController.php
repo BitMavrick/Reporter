@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\Blog_tag;
 use App\Models\User_blog;
 use App\Models\User;
+use App\Models\Tag;
 
 class BlogController extends Controller
 {
@@ -89,13 +90,23 @@ class BlogController extends Controller
         }
 
 
-        // Saving the blog
+        // create & Saving the blog
         $blog->title = $request->title;
         $blog->introduction = $request->introduction;
         $blog->description = $request->description;
         $blog->owner = auth()->user()->username;
         $blog->save();
 
-        dd('done');
+
+
+
+        // create & Saving the tags
+        for ($i = 0; $i < count($tags); $i++) {
+            $tag = new Tag;
+            $tag->name = $tags[$i];
+            $tag->save();
+        }
+
+        dd($blog->id);
     }
 }

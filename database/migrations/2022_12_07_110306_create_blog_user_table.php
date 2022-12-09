@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('blog_user', function (Blueprint $table) {
             $table->unsignedBigInteger('blog_id');
             $table->string('user_username');
+            $table->timestamps();
 
             $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
             $table->foreign('user_username')->references('username')->on('users')->onDelete('cascade');
