@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
 
 class BlogController extends Controller
 {
@@ -18,16 +19,16 @@ class BlogController extends Controller
     public function creating(Request $request)
     {
         // Validation
-        $validated = $request->validate([
-            'title' => 'required | min:15 | max:100',
-            'main_image' => 'required | image | mimes:jpeg,png,jpg | max:2048',
-            'introduction' => 'required | min:150 | max:1000',
-            'secondary_image' => 'image | mimes:jpeg,png,jpg | max:2048',
-            'description' => 'required | min:500',
+        $validate =  $request->validate([
+            'title' => 'min:0 | max:100',
+            'primary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+            'introduction' => 'min:0 | max:1000',
+            'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+
         ]);
 
         // Tags Modification
-        $all_string = $request->tags;
+        $all_string = strtolower($request->tags);
         $tags = explode(',', $all_string);
 
         for ($i = 0; $i < count($tags); $i++) {
@@ -36,7 +37,9 @@ class BlogController extends Controller
             $mod_tag = substr($the_tag, $start);
 
             $tags[$i] = $mod_tag;
-            $tags[$i] = str_replace(array('"', '}', ']',), '', $tags[$i]);
+            $tags[$i] = str_replace(array('"', '}', ']', '{', '[', '(', ')', '*', '$', '/', '?', '+', '^', '%', ':', ';', '<', '>', '.'), '', $tags[$i]);
         }
+
+        dd($tags);
     }
 }
