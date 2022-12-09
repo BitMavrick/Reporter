@@ -18,18 +18,17 @@ class BlogController extends Controller
 
     public function creating(Request $request)
     {
-        // // image validation and handling first
-        // $validate =  $request->validate([
-        //     'primary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
-        //     'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+        // image validation and handling first
+        $validate =  $request->validate([
+            'primary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+            'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
 
-        // ]);
+        ]);
 
-        // if (isset($validate['primary_image'])) {
-
-        // } else {
-        //     dd('no image');
-        // }
+        if (isset($validate['primary_image'])) {
+            $primary_image = $request->file('primary_image');
+            $primary_image->store('public/cache');
+        }
 
         // REST Validation
         $request->validate([

@@ -33,16 +33,28 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label for="cover">Primary Image</label>
-                        <input type="file" name="primary_image" class="form-control" id="cover"
-                            aria-describedby="emailHelp" value="{{ old('primary_image') }}">
-                        @error('primary_image')
+                    <div class="form-group mt-4">
+                        <label for="intro">Introduction</label>
+                        <textarea class="form-control" name="introduction" id="intro" rows="5" maxlength="1000"
+                            placeholder="Write an overview of your article ...">{{ old('introduction') }}</textarea>
+                        @error('introduction')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                         @enderror
-                        <small id="emailHelp" class="form-text text-muted">The ideal ratio of primary image is 16:9, The
-                            image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
+
+                    <div class="form-group mt-4">
+                        <label for="des">Description</label>
+                        <textarea class="form-control" name="description" id="des" rows="3"
+                            placeholder="Start writing your article ...">{{ old('description') }}</textarea>
+                        @error('description')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    <br>
+
+                    <h1>Improve your article quality,</h1>
+                    <hr>
 
                     <div class="form-group mt-4">
                         <label for="tags">Tags</label>
@@ -55,13 +67,17 @@
                         @enderror
                     </div>
 
-                    <div class="form-group mt-4">
-                        <label for="intro">Introduction</label>
-                        <textarea class="form-control" name="introduction" id="intro" rows="5" maxlength="1000"
-                            placeholder="Write an overview of your article ...">{{ old('introduction') }}</textarea>
-                        @error('introduction')
+
+
+                    <div class="form-group">
+                        <label for="cover">Primary Image</label>
+                        <input type="file" name="primary_image" class="form-control" id="cover"
+                            aria-describedby="emailHelp">
+                        @error('primary_image')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                         @enderror
+                        <small id="emailHelp" class="form-text text-muted">The ideal ratio of primary image is 16:9, The
+                            image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
 
                     <div class="form-group">
@@ -73,15 +89,6 @@
                         @enderror
                         <small id="emailHelp" class="form-text text-muted">The ideal ratio of image is 16:9, The
                             image will be crop to fit if it is not maintain the exact ratio.</small>
-                    </div>
-
-                    <div class="form-group mt-4">
-                        <label for="des">Description</label>
-                        <textarea class="form-control" name="description" id="des" rows="3"
-                            placeholder="Start writing your article ...">{{ old('description') }}</textarea>
-                        @error('description')
-                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
-                        @enderror
                     </div>
 
                     <div class="form-group mt-4">
