@@ -37,14 +37,17 @@
                         <label for="cover">Primary Image</label>
                         <input type="file" name="main_image" class="form-control" id="cover"
                             aria-describedby="emailHelp">
+                        @error('main_image')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                         <small id="emailHelp" class="form-text text-muted">The ideal ratio of primary image is 16:9, The
                             image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
 
                     <div class="form-group mt-4">
                         <label for="tags">Tags</label>
-                        <input type="text" class="form-control form-control-lg" name="tags" aria-describedby="emailHelp"
-                            required>
+                        <input type="text" class="form-control form-control-lg" name="tags"
+                            value="{{ Auth::user()->name }}" aria-describedby="emailHelp" required>
                         <small id="emailHelp" class="form-text text-muted">Tags will be separated via comma (,). You
                             must enter at least one tag</small>
                         @error('tags')
@@ -56,12 +59,18 @@
                         <label for="intro">Introduction</label>
                         <textarea class="form-control" name="introduction" id="intro" rows="5" maxlength="1000"
                             placeholder="Write an overview of your article ..."></textarea>
+                        @error('introduction')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="cover">Secondary Image (Optional)</label>
                         <input type="file" name="secondary_image" class="form-control" id="cover"
                             aria-describedby="emailHelp">
+                        @error('secondary_image')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                         <small id="emailHelp" class="form-text text-muted">The ideal ratio of image is 16:9, The
                             image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
@@ -70,6 +79,9 @@
                         <label for="des">Description</label>
                         <textarea class="form-control" name="description" id="des" rows="3"
                             placeholder="Start writing your article ..."></textarea>
+                        @error('description')
+                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="form-group mt-4">
