@@ -23,7 +23,17 @@ class BlogController extends Controller
 
     public function blog(Request $request)
     {
-        return view('user.article');
+        if (Blog::where('id', $request->id)->exists()) {
+            $blog = Blog::where('id', $request->id)->first();
+            $tags = Blog_tag::where('blog_id', $blog->id)->get();
+
+            View()->share('blog', $blog);
+            View()->share('tags', $tags);
+
+            return view('user.article');
+        } else {
+            return redirect()->route('404');
+        }
     }
 
     public function creating(Request $request)
@@ -32,8 +42,8 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required | min:2 | max:100',
             'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
-            'introduction' => 'required | min:2 | max:100',
-            'description' => 'required | min:2 | max:1000',
+            'introduction' => 'required | min:2 | max:1000',
+            'description' => 'required | min:2 | max:4000',
             'secondary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
         ]);
