@@ -98,7 +98,7 @@
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-outline-danger" data-toggle="tooltip"
+                            <button type="submit" class="btn btn-sm btn-outline-danger mt-4" data-toggle="tooltip"
                                 data-placement="top" title="Signing out from your current account">Sign Out</button>
                         </form>
 

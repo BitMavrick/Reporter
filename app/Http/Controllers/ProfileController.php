@@ -35,6 +35,7 @@ class ProfileController extends Controller
         $user->save();
         $profile->save();
 
+        Session::flash('green', "Profile updated successfully!");
         return redirect()->route('profile', auth()->user()->username);
     }
 
@@ -74,7 +75,7 @@ class ProfileController extends Controller
         $user->save();
         $profile->save();
 
-        Session::flash('new', "Cover updated successfully!");
+        Session::flash('green', "Cover updated successfully!");
         return redirect()->route('profile', auth()->user()->username);
     }
 }
