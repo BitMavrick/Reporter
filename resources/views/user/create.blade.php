@@ -95,6 +95,8 @@
                         <label for="youtube">Youtube Video Link (Optional)</label>
                         <input type="text" name="video_link" class="form-control" id="tags" aria-describedby="emailHelp"
                             placeholder="Paste the video link here ...">
+                        <small id="emailHelp" class="form-text text-muted">Paste the sharable link, otherwise it may not
+                            work. Ex. https://youtu.be/0gNauGdOkro </small>
                     </div>
 
                     <br>

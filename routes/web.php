@@ -29,6 +29,7 @@ Route::patch('update/cover', [ProfileController::class, 'update_cover'])->name('
 Route::get('create/', [BlogController::class, 'create'])->name('blog.create');
 Route::post('creating/', [BlogController::class, 'creating'])->name('blog.creating');
 Route::get('article/{id}/', [BlogController::class, 'blog'])->name('blog');
+Route::post('remove/', [BlogController::class, 'remove'])->name('blog.remove');
 
 Route::get('category/', function () {
     return view('user.category');

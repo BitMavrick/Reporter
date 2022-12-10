@@ -43,6 +43,7 @@ class BlogController extends Controller
 
     public function creating(Request $request)
     {
+
         // REST Validation
         $request->validate([
             'title' => 'required | min:2 | max:100',
@@ -51,7 +52,12 @@ class BlogController extends Controller
             'description' => 'required | min:10 | max:4000',
             'secondary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+            'video_link' => 'url',
         ]);
+
+        $link = $request->video_link;
+        $init = strpos($link, '.be/') + 4;
+        $link_value = substr($link, $init);
 
         // Creating the blog
         $blog = new Blog;
@@ -109,6 +115,10 @@ class BlogController extends Controller
             $blog->secondary_image = $filename;
         }
 
+        if ($request->video_link != null) {
+            $blog->video_link = $link_value;
+        }
+
         // create & Saving the blog
         $blog->title = $request->title;
         $blog->introduction = $request->introduction;
@@ -138,5 +148,13 @@ class BlogController extends Controller
         $user_blog->save();
 
         return redirect()->route('blog', $blog->id);
+    }
+
+    public function remove(Request $request){
+
+        $blog = Blog::where('id', $request->id)->first();
+        $blog->delete();
+
+        return redirect()->route('home');
     }
 }
