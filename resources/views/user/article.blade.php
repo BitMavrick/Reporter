@@ -92,7 +92,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h3 class="modal-title text-warning" id="exampleModalLongTitle">Remove Article!
+                                        <h3 class="modal-title text-danger" id="exampleModalLongTitle">Remove Article!
                                         </h3>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -104,7 +104,7 @@
                                         <div class="modal-body">
 
                                             <h4>Are you sure that you want to remove this artice?</h4>
-                                            <p>This article will be deleted parmanently!</p>
+                                            <p class="text-danger">This article will be deleted parmanently!</p>
 
                                             <input type="text" hidden name="id" value="{{ $blog->id }}">
                                         </div>

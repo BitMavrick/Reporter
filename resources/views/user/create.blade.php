@@ -20,14 +20,15 @@
                 </div>
 
                 <h1>Publish a new article,</h1>
+                <hr>
 
-                <form class="mt-5" action="{{ route('blog.creating') }}" method="POST" enctype="multipart/form-data">
+                <form class="mt-4" action="{{ route('blog.creating') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class="form-control form-control-lg" id="title"
                             aria-describedby="emailHelp" maxlength="100" value="{{ old('title') }}"
-                            placeholder="Enter the title of your article here">
+                            placeholder="Enter the title of your article here ...">
                         @error('title')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -78,6 +79,7 @@
                         @enderror
                         <small id="emailHelp" class="form-text text-muted">The ideal ratio of primary image is 16:9, The
                             image will be crop to fit if it is not maintain the exact ratio.</small>
+
                     </div>
 
                     <div class="form-group">
@@ -87,8 +89,6 @@
                         @error('secondary_image')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                         @enderror
-                        <small id="emailHelp" class="form-text text-muted">The ideal ratio of image is 16:9, The
-                            image will be crop to fit if it is not maintain the exact ratio.</small>
                     </div>
 
                     <div class="form-group mt-4">
