@@ -45,7 +45,7 @@ class BlogController extends Controller
     public function creating(Request $request)
     {
 
-        // REST Validation
+        // Primary Validation
         $request->validate([
             'title' => 'required | min:2 | max:100',
             'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
@@ -60,9 +60,8 @@ class BlogController extends Controller
         $init = strpos($link, '.be/') + 4;
         $link_value = substr($link, $init);
 
-        // Creating the blog
+        // Creating a instance of the blog
         $blog = new Blog;
-
 
         // Tags Modification
         $all_string = strtolower($request->tags);
@@ -161,7 +160,6 @@ class BlogController extends Controller
         }
 
         $blog->delete();
-
         return redirect()->route('home');
     }
 }

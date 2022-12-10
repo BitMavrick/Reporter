@@ -105,14 +105,12 @@
                                             <input type="text" hidden name="id" value="{{ $blog->id }}">
                                         </div>
 
-
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">No!</button>
                                             <button type="Submit" class="btn btn-danger">Yes! I'm Sure</button>
                                         </div>
                                     </form>
-
 
                                 </div>
                             </div>
@@ -134,8 +132,6 @@
         </section>
     </main>
 
-
     <x-user.partials.footer />
-
 
 </x-user.master>
