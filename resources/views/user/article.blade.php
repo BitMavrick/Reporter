@@ -49,7 +49,7 @@
                             </ul>
                             <div class="content text-left">
                                 <hr>
-                                <h2 id="heading">Introdcution</h2>
+                                <h2 id="heading">Introduction</h2>
                                 <p>{{ $blog->introduction }}</p>
 
 

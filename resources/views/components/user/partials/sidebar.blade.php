@@ -43,17 +43,34 @@
             </div>
             @endif
 
-            @if(isset($writter))
+            @if(isset($writter) && isset($profile))
             <div class="col-lg-12">
                 <div class="widget">
                     <div class="widget-body">
                         <img loading="lazy" decoding="async" src="/storage/cover_images/{{ $profile->cover_image }}"
                             alt="About Me" class="w-100 author-thumb-sm d-block">
                         <h2 class="widget-title my-3">{{ $writter->name }} </h2>
-                        <p class="mb-3 pb-2">Hello, I’m Hootan Safiyari. A Content writter,
-                            Developer and Story teller. Working as a Content writter at CoolTech
-                            Agency. Quam nihil …</p> <a href="about.html" class="btn btn-sm btn-outline-primary">Know
-                            More</a>
+
+                        @if($profile->address)
+                        <p>
+                        <div class="d-inline">
+                            <i class="las la-lg la-map-marker-alt"></i>
+                            {{ $profile->address }}
+                        </div>
+                        </p>
+                        @endif
+
+                        @if($profile->twitter_handle)
+                        <p>
+                        <div class="d-inline">
+                            <i class="lab la-lg la-twitter"></i>
+                            {{ $profile->twitter_handle }}
+                        </div>
+                        </p>
+
+                        <a href="{{ route('profile', $writter->username) }}" class="btn btn-sm btn-outline-primary">View
+                            Profile</a>
+                        @endif
                     </div>
                 </div>
             </div>

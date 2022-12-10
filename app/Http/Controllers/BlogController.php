@@ -47,8 +47,8 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required | min:2 | max:100',
             'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
-            'introduction' => 'required | min:2 | max:1000',
-            'description' => 'required | min:2 | max:4000',
+            'introduction' => 'required | min:10 | max:1000',
+            'description' => 'required | min:10 | max:4000',
             'secondary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
         ]);
