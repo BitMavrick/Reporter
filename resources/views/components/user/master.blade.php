@@ -41,16 +41,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" />
 
-
-
-    <script src="https://cdn.tiny.cloud/1/749efvi90r0jn8n330bhuobwkxk005r8aapousj70g1no5aq/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
-
+    <!-- CKeditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
     <style>
     #inputTag {
         color: black !important;
         background-color: black !important;
         text-align: center !important;
+    }
+
+    .ck-editor__editable {
+        min-height: 200px;
     }
     </style>
 

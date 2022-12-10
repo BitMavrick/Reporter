@@ -48,16 +48,28 @@ class BlogController extends Controller
     public function creating(Request $request)
     {
 
+
+
         // Primary Validation
-        $request->validate([
+        // $validate =  $request->validate([
+        //     'title' => 'required | min:2 | max:100',
+        //     'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
+        //     'introduction' => 'required | min:10 | max:1000',
+        //     'description' => 'required | min:10 | max:4000',
+        //     'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+        //     'video_link' => 'url',
+        // ]);
+
+        $validate =  $request->validate([
             'title' => 'required | min:2 | max:100',
             'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
             'introduction' => 'required | min:10 | max:1000',
             'description' => 'required | min:10 | max:4000',
-            'secondary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
-            'video_link' => 'url',
         ]);
+
+
+        //dd($validate);
 
         $link = $request->video_link;
         $init = strpos($link, '.be/') + 4;
@@ -150,7 +162,7 @@ class BlogController extends Controller
         $user_blog->user_username = auth()->user()->username;
         $user_blog->save();
 
-        Session::flash('new', "Your article has been published successfully! If you need any modification in your article, you can do it. Just scroll down to the bottom of the article.");
+        //Session::flash('new', "Your article has been published successfully! If you need any modification in your article, you can do it. Just scroll down to the bottom of the article.");
         return redirect()->route('blog', $blog->id);
     }
 

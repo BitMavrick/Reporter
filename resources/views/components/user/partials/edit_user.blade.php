@@ -75,11 +75,12 @@
 
                     <div class="form-group" id="exampleFormControlTextarea1">
                         <label for="exampleFormControlTextarea1">About Yourself</label>
-                        <textarea value='say something' name="about_you" class="form-control"
-                            id="exampleFormControlTextarea1" placeholder="Write Something about yourself..."
+                        <textarea value='say something' name="about_you" class="form-control" id="editor"
+                            placeholder="Write Something about yourself..."
                             rows="2">{{ $profile_data->profile->about_you}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="reset" class="btn btn-secondary">Discard</button>
                 </form>
             </div>
 
@@ -89,21 +90,7 @@
 
 
 <script>
-tinymce.init({
-    selector: "textarea",
-    height: "300",
-    plugins: "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect",
-    toolbar: "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-    tinycomments_mode: "embedded",
-    tinycomments_author: "Author name",
-    mergetags_list: [{
-            value: "First.Name",
-            title: "First Name"
-        },
-        {
-            value: "Email",
-            title: "Email"
-        },
-    ],
+ClassicEditor.create(document.querySelector("#editor")).catch((error) => {
+    console.error(error);
 });
 </script>

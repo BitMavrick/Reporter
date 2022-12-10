@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('owner');
             $table->string('main_image');
-            $table->string('title', 70);
+            $table->longText('title', 70);
             $table->longText('introduction', 300);
             $table->longText('description', 2000);
             $table->string('secondary_image')->nullable();

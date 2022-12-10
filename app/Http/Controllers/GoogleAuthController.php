@@ -7,6 +7,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 
 
@@ -24,6 +25,7 @@ class GoogleAuthController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
+                Session::flash('green', "Welcome back, " . $user->name . "");
                 auth()->login($finduser);
                 return redirect('/');
             } else {
@@ -57,6 +59,7 @@ class GoogleAuthController extends Controller
                     'about_you' => 'Hello, This is ' . $user->name,
                 ]);
 
+                Session::flash('congrates', "Hello, " . $user->name . ". We are so happy to see you as a member of our site. Now you can unleash your writting power here! We hope that it will be a really good journey for both of us. Thank you." . "");
                 return redirect('/');
             }
         } catch (\Exception $e) {
