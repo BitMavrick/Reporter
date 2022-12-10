@@ -9,6 +9,8 @@
     <main>
         <section class="section">
             <div class="container">
+                <x-user.partials.alert />
+
                 <div class="row">
                     <div class="col-lg-8 ">
                         <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>

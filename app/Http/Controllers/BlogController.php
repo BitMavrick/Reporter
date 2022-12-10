@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
+use Session;
 use App\Models\Blog;
 use App\Models\Blog_tag;
 use App\Models\User_blog;
@@ -35,6 +36,8 @@ class BlogController extends Controller
             View()->share('profile', $profile);
             View()->share('blog', $blog);
             View()->share('tags', $tags);
+
+            Session::flash('message', "Special message goes here");
 
             return view('user.article');
         } else {

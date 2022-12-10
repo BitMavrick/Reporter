@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -73,6 +74,7 @@ class ProfileController extends Controller
         $user->save();
         $profile->save();
 
+        Session::flash('new', "Cover updated successfully!");
         return redirect()->route('profile', auth()->user()->username);
     }
 }
