@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Blog;
 use App\Models\Blog_tag;
 use App\Models\User_blog;
@@ -150,9 +151,15 @@ class BlogController extends Controller
         return redirect()->route('blog', $blog->id);
     }
 
-    public function remove(Request $request){
-
+    public function remove(Request $request)
+    {
         $blog = Blog::where('id', $request->id)->first();
+
+        Storage::delete('public/blog_images/' . $blog->main_image);
+        if ($blog->secondary_image != null) {
+            Storage::delete('public/blog_images/' . $blog->secondary_image);
+        }
+
         $blog->delete();
 
         return redirect()->route('home');

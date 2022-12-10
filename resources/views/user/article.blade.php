@@ -99,7 +99,7 @@
                                         @csrf
                                         <div class="modal-body">
 
-                                            <h4>Are you sure you want to remove this artice?</h4>
+                                            <h4>Are you sure that you want to remove this artice?</h4>
                                             <p>This article will be deleted parmanently!</p>
 
                                             <input type="text" hidden name="id" value="{{ $blog->id }}">
