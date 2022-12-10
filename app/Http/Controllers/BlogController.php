@@ -150,6 +150,7 @@ class BlogController extends Controller
         $user_blog->user_username = auth()->user()->username;
         $user_blog->save();
 
+        Session::flash('new', "Your article has been published successfully! If you need any modification in your article, you can do it. Just scroll down to the bottom of the article.");
         return redirect()->route('blog', $blog->id);
     }
 
@@ -163,6 +164,7 @@ class BlogController extends Controller
         }
 
         $blog->delete();
+        Session::flash('red', "Your article has been removed successfully!");
         return redirect()->route('home');
     }
 }

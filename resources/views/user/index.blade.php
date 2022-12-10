@@ -9,6 +9,7 @@
     <main>
         <section class="section">
             <div class="container">
+                <x-user.partials.alert />
                 <div class="row no-gutters-lg">
                     <div class="col-12">
                         <h2 class="section-title">Latest Articles</h2>
