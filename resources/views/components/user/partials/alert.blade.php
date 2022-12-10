@@ -24,4 +24,9 @@
     <h4 class="alert-heading">Well done!</h4>
     <p>{{ Session::get('new') }}</p>
 </div>
+@elseif(Session::has('congrates'))
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Congratulations!</h4>
+    <p>{{ Session::get('new') }}</p>
+</div>
 @endif

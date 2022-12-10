@@ -91,7 +91,6 @@
 
                         <hr>
 
-
                         <h1 class="mb-4">About {{$user->name}},</i></h1>
                         <div class="content">
                             {!!$user->profile->about_you!!}
@@ -99,7 +98,7 @@
                         @if(Auth::user() && Auth::user()->username == $profile_data->username)
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-outline-danger mt-4" data-toggle="tooltip"
+                            <button type="submit" class="btn btn-sm btn-outline-danger" data-toggle="tooltip"
                                 data-placement="top" title="Signing out from your current account">Sign Out</button>
                         </form>
 

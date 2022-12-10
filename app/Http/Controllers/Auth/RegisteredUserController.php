@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Session;
 
 class RegisteredUserController extends Controller
 {
@@ -48,7 +49,6 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
         return redirect(RouteServiceProvider::HOME);
     }
 }
