@@ -210,6 +210,7 @@ class BlogController extends Controller
     public function blogUpdate($id)
     {
         $blog = Blog::where('id', $id)->first();
+        $tags = Blog_tag::where('blog_id', $id)->get();
 
         if (isset(auth()->user()->username)) {
             if ($blog->owner != auth()->user()->username) {
@@ -221,7 +222,13 @@ class BlogController extends Controller
             return redirect()->route('404');
         }
 
+        $all_tag = '';
+        foreach ($tags as $tag) {
+            $all_tag .=  $tag->tag_name . ',';
+        }
+
         View()->share('blog', $blog);
+        View()->share('all_tag', $all_tag);
         return view('user.blog_update');
     }
 
