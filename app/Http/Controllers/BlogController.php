@@ -191,6 +191,22 @@ class BlogController extends Controller
         return redirect()->route('blog', $blog->id);
     }
 
+    public function deleteSecondaryImage(Request $request)
+    {
+        $blog = Blog::where('id', $request->id)->first();
+
+        if ($blog->owner != auth()->user()->username) {
+            return redirect()->route('404');
+        }
+
+        Storage::delete('public/blog_images/' . $blog->secondary_image);
+        $blog->secondary_image = null;
+        $blog->save();
+
+        Session::flash('red', "Your article's secondary image has been removed. You can set it again from re-write arcticle section.");
+        return redirect()->route('blog', $blog->id);
+    }
+
     public function remove(Request $request)
     {
         $blog = Blog::where('id', $request->id)->first();

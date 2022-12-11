@@ -6,11 +6,9 @@
 
     <x-user.partials.navbar />
 
-
     <main>
         <section class="section">
             <div class="container">
-
                 <x-user.partials.alert />
 
                 <div class="row">
@@ -37,7 +35,6 @@
                                                 @csrf
 
                                                 <div class="modal-body">
-
                                                     <input type="text" name="id" hidden value="{{ $blog->id }}">
                                                     <div class="form-group">
                                                         <label for="cover">Primary Image</label>
@@ -60,7 +57,6 @@
                                                         data-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                                 </div>
-
                                             </form>
 
                                         </div>
@@ -130,8 +126,35 @@
 
                                 <div class="card-image">
                                     @if( Auth::user() and (Auth::user()->username == $writter->username))
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="delete-secondary-image" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <form action="{{ route('blog.delete.secondaryImage') }}" method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <input type="text" name="id" hidden value="{{ $blog->id }}">
+                                                    <div class="modal-body">
+                                                        <h4 class="text-danger">Are you sure that you want to remove
+                                                            this
+                                                            image?</h4>
+                                                        <p>You can always add a new secondary image from the re-write
+                                                            article option.</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">No!</button>
+                                                        <button type="submit" class="btn btn-danger">Yes, I'm
+                                                            sure</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="post-info">
-                                        <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg"><span
+                                        <a href="#" data-toggle="modal" data-target="#delete-secondary-image"><span
                                                 class="text-uppercase">Remove Image</span></a>
                                     </div>
                                     @endif
