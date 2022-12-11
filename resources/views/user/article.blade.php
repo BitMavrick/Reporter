@@ -103,27 +103,54 @@
                                     <h2 class="ml-1">69</h2>
                                 </li>
 
-                                <script>
-                                history.scrollRestoration = "manual"
-                                </script>
+                                <input type="text" name="user_id" id="user_id" value="{{ Auth::user()->username }}"
+                                    hidden>
+                                <input type="text" name="blog_id" id="blog_id" value="{{ $blog->id }}" hidden>
 
                                 <script>
                                 document.getElementById('like').addEventListener('click', click_event)
 
                                 function click_event() {
 
-
-
                                     if (document.getElementById('like').innerHTML ==
                                         '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
 
+
+
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-solid fa-2x fa-heart text-danger m-1"></i>'
+
+                                        let user_id = document.getElementById('user_id').value;
+                                        let blog_id = document.getElementById('blog_id').value;
+
+                                        //console.log(user_id + " " + blog_id);
+
+                                        $.ajax({
+
+                                            type: "post",
+                                            url: "/like",
+                                            data: {
+                                                user_id: user_id,
+                                                blog_id: blog_id,
+                                                _token: '{{ csrf_token() }}'
+
+                                            },
+                                            success: function(response) {
+                                                console.log(response);
+                                            },
+                                        })
+
+
+
+
+
 
                                     } else {
 
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
+
+
 
                                     }
 
