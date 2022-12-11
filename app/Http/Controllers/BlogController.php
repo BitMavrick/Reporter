@@ -156,6 +156,21 @@ class BlogController extends Controller
 
     public function updating(Request $request)
     {
+        $blog = Blog::where('id', $request->id)->first();
+
+        if ($blog->owner != auth()->user()->username) {
+            Session::flash('dump', "You are not authorized to perform this action!");
+            return redirect()->route('404');
+        }
+
+        $request->validate([
+            'title' => 'required | min:2 | max:150',
+            'introduction' => 'required | min:10 | max:1200',
+            'description' => 'required | min:10 | max:4000',
+            'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
+        ]);
+
+        dd(request()->all());
     }
 
     public function updateMainImage(Request $request)

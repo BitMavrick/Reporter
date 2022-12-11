@@ -21,7 +21,7 @@
                 <h1>Re-write your article,</h1>
                 <hr>
 
-                <form class="mt-4" action="{{ route('blog.creating') }}" method="POST" enctype="multipart/form-data">
+                <form class="mt-4" action="{{ route('blog.updating') }}" method="POST" enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
 
