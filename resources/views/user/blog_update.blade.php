@@ -12,8 +12,7 @@
                 <div class="row">
                     <div class="col-lg-8 ">
                         <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>
-                            <span class="mx-1">/</span> <a
-                                href="{{ route('blog', Auth::user()->username) }}">Article</a>
+                            <span class="mx-1">/</span> <a href="{{ route('blog', $blog->id) }}">Article</a>
                             <span class="mx-1">/</span> <a>Re-write</a>
                         </div>
                     </div>
@@ -27,7 +26,7 @@
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class="form-control form-control-lg" id="title"
-                            aria-describedby="emailHelp" maxlength="100" value="{{ old('title') }}"
+                            aria-describedby="emailHelp" maxlength="100" value="{{ old('title', $blog->title) }}"
                             placeholder="Enter the title of your article here ...">
                         @error('title')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
@@ -37,7 +36,7 @@
                     <div class="form-group mt-4">
                         <label for="intro">Introduction</label>
                         <textarea class="form-control" name="introduction" id="intro" rows="5" maxlength="1000"
-                            placeholder="Write an overview of your article ...">{{ old('introduction') }}</textarea>
+                            placeholder="Write an overview of your article ...">{{ old('introduction', $blog->introduction) }}</textarea>
                         @error('introduction')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -46,7 +45,7 @@
                     <div class="form-group mt-4">
                         <label for="des">Description</label>
                         <textarea class="form-control" name="description" id="editor" rows="3"
-                            placeholder="Start writing your article ...">{{ old('description') }}</textarea>
+                            placeholder="Start writing your article ...">{{ old('description', $blog->description) }}</textarea>
                         @error('description')
                         <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -82,7 +81,8 @@
                     <div class="form-group mt-4">
                         <label for="youtube">Youtube Video Link (Optional)</label>
                         <input type="text" name="video_link" class="form-control" id="tags" aria-describedby="emailHelp"
-                            placeholder="Paste the video link here ...">
+                            placeholder="Paste the video link here ..."
+                            value="{{ old('video_link', 'https://youtu.be/'.$blog->video_link) }}">
                         <small id="emailHelp" class="form-text text-muted">Paste the sharable link, otherwise it may not
                             work. Ex. https://youtu.be/0gNauGdOkro </small>
                     </div>
