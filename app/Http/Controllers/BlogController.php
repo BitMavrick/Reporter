@@ -207,6 +207,11 @@ class BlogController extends Controller
         return redirect()->route('blog', $blog->id);
     }
 
+    public function blogUpdate(Request $request)
+    {
+        return view('user.blog_update');
+    }
+
     public function remove(Request $request)
     {
         $blog = Blog::where('id', $request->id)->first();

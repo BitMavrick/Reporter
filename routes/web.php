@@ -32,6 +32,7 @@ Route::get('article/{id}/', [BlogController::class, 'blog'])->name('blog');
 Route::post('remove/', [BlogController::class, 'remove'])->name('blog.remove');
 Route::patch('update_main_image/', [BlogController::class, 'updateMainImage'])->name('blog.update.mainImage');
 Route::delete('delete_secondary_image/', [BlogController::class, 'deleteSecondaryImage'])->name('blog.delete.secondaryImage');
+Route::get('article/{id}/re-write', [BlogController::class, 'blogUpdate'])->name('blog.update');
 
 Route::get('category/', function () {
     return view('user.category');
