@@ -13,7 +13,7 @@
                     <div class="col-lg-8 ">
                         <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>
                             <span class="mx-1">/</span> <a
-                                href="{{ route('profile', Auth::user()->username) }}">Profile</a>
+                                href="{{ route('blog', Auth::user()->username) }}">Article</a>
                             <span class="mx-1">/</span> <a>Re-write</a>
                         </div>
                     </div>

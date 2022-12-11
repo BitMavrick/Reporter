@@ -207,8 +207,21 @@ class BlogController extends Controller
         return redirect()->route('blog', $blog->id);
     }
 
-    public function blogUpdate(Request $request)
+    public function blogUpdate($id)
     {
+        $blog = Blog::where('id', $id)->first();
+
+        if (isset(auth()->user()->username)) {
+            if ($blog->owner != auth()->user()->username) {
+                Session::flash('dump', "You are not authorized to access this page!");
+                return redirect()->route('404');
+            }
+        } else {
+            Session::flash('dump', "You are not authorized to access this page!");
+            return redirect()->route('404');
+        }
+
+        View()->share('blog', $blog);
         return view('user.blog_update');
     }
 

@@ -215,11 +215,12 @@
                         </div>
 
                         <div class="mt-4">
+                            <a href="{{ route('blog.update', $blog->id) }}"
+                                class="btn btn-sm btn-outline-warning">Re-write Article</a>
                             <a href="#" class="btn btn-sm btn-outline-danger" data-toggle="modal"
                                 data-target="#blogDelete">Remove
                                 Article</a>
-                            <a href="" class="btn btn-sm btn-outline-warning" data-toggle="modal"
-                                data-target="#editUser">Re-write Article</a>
+
                         </div>
                         @endif
                     </div>
