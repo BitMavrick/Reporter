@@ -59,6 +59,7 @@ class BlogController extends Controller
         ]);
 
 
+        // Getting the video link
         $link = $request->video_link;
         $init = strpos($link, '.be/') + 4;
         $link_value = substr($link, $init);
@@ -158,6 +159,7 @@ class BlogController extends Controller
     {
         $blog = Blog::where('id', $request->id)->first();
 
+
         if ($blog->owner != auth()->user()->username) {
             Session::flash('dump', "You are not authorized to perform this action!");
             return redirect()->route('404');
@@ -170,7 +172,84 @@ class BlogController extends Controller
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
         ]);
 
-        dd(request()->all());
+        // Delete all Tags first
+        $tags = Blog_tag::where('blog_id', $request->id)->delete();
+
+        // Updating Tag
+        $tags = Blog_tag::where('blog_id', $blog->id)->get();
+
+        // Tags Modification
+        $all_string = strtolower($request->tags);
+        $tags = explode(',', $all_string);
+
+        for ($i = 0; $i < count($tags); $i++) {
+            $the_tag = $tags[$i];
+            $start = strpos($the_tag, ':') + 2;
+            $mod_tag = substr($the_tag, $start);
+
+            $tags[$i] = $mod_tag;
+            $tags[$i] = str_replace(array('"', '}', ']', '{', '[', '(', ')', '*', '$', '/', '?', '+', '^', '%', ':', ';', '<', '>', '.'), '', $tags[$i]);
+        }
+
+        // create & Saving the tags
+        for ($i = 0; $i < count($tags); $i++) {
+            $tag = new Tag;
+            if ($tag->where('name', $tags[$i])->exists()) {
+            } else {
+                $tag->name = $tags[$i];
+                $tag->save();
+            }
+
+            $blog_tag = new Blog_tag;
+            $blog_tag->blog_id = $blog->id;
+            $blog_tag->tag_name = $tags[$i];
+            $blog_tag->save();
+        }
+
+        // Secondary Image Modification
+        if ($request->hasFile('secondary_image')) {
+
+            if ($blog->secondary_image != null) {
+                Storage::delete('public/blog_images/' . $blog->secondary_image);
+            }
+
+
+            $extension = $request->file('secondary_image')->getClientOriginalExtension();
+            $filename = date('Y-m-d') . '_' . time() . '.' . $extension;
+
+            $image = $request->file('secondary_image');
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->fit(1280, 720, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            /* Tips:
+            So I learned that if this method raised an error like cant save on that route,
+            I just have you to create folder manually. EX. storage/app/public/blog_images
+            thats it.
+            */
+            $image_resize->save(storage_path('app/public/blog_images/' . $filename));
+            $blog->secondary_image = $filename;
+        }
+
+
+        // Video Link Modification
+        if ($request->video_link != null) {
+            $link = $request->video_link;
+            $init = strpos($link, '.be/') + 4;
+            $link_value = substr($link, $init);
+
+            $blog->video_link = $link_value;
+        }
+
+
+        $blog->title = $request->title;
+        $blog->introduction = $request->introduction;
+        $blog->description = $request->description;
+        $blog->save();
+
+        Session::flash('green', "Your article has been modified successfully!");
+        return redirect()->route('blog', $blog->id);
     }
 
     public function updateMainImage(Request $request)
