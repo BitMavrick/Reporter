@@ -8,8 +8,7 @@
         {{ $title ?? 'Welcome | Reporter'}}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <meta name="description"
-        content="Repoter is a article writting website. Its a solo project based application Made by TheAlter71">
+    <meta name="description" content="Repoter is a article writting website. Its a solo project based application Made by TheAlter71">
     <meta name="author" content="Mehedi Hasan">
     <link rel="shortcut icon" href="/user/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="/user/images/favicon.png" type="image/x-icon">
@@ -20,13 +19,10 @@
     <!-- # Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Line Awesome -->
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/6d6a33e717.js" crossorigin="anonymous"></script>
@@ -44,16 +40,18 @@
     <!-- CKeditor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
     <style>
-    #inputTag {
-        color: black !important;
-        background-color: black !important;
-        text-align: center !important;
-    }
+        #inputTag {
+            color: black !important;
+            background-color: black !important;
+            text-align: center !important;
+        }
 
-    .ck-editor__editable {
-        min-height: 200px;
-    }
+        .ck-editor__editable {
+            min-height: 200px;
+        }
     </style>
+
+
 
 </head>
 

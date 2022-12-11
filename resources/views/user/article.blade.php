@@ -89,6 +89,48 @@
                                             d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                     </svg> <span>{{ date('M j, Y', strtotime($writter->created_at)) }}</span>
                                 </li>
+
+                                <li class="float-right m-4 d-flex">
+                                    @if(Auth::user())
+                                    <a href="#" id="like" style="background-color: white;"><i
+                                            class="fa-regular fa-2x fa-heart text-danger m-1"></i></a>
+                                    @else
+
+                                    <i class="fa-regular fa-2x fa-heart text-secondary m-1"></i>
+
+                                    @endif
+
+                                    <h2 class="ml-1">69</h2>
+                                </li>
+
+                                <script>
+                                history.scrollRestoration = "manual"
+                                </script>
+
+                                <script>
+                                document.getElementById('like').addEventListener('click', click_event)
+
+                                function click_event() {
+
+
+
+                                    if (document.getElementById('like').innerHTML ==
+                                        '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
+
+                                        document.getElementById('like').innerHTML =
+                                            '<i class="fa-solid fa-2x fa-heart text-danger m-1"></i>'
+
+                                    } else {
+
+                                        document.getElementById('like').innerHTML =
+                                            '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
+
+                                    }
+
+                                }
+                                </script>
+
+
                             </ul>
 
                             <br>
