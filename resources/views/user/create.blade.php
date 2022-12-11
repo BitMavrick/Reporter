@@ -69,8 +69,6 @@
                         @enderror
                     </div>
 
-
-
                     <div class="form-group">
                         <label for="cover">Primary Image</label>
                         <input type="file" name="primary_image" class="form-control" id="cover"

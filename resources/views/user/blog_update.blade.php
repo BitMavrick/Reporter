@@ -22,7 +22,11 @@
                 <hr>
 
                 <form class="mt-4" action="{{ route('blog.creating') }}" method="POST" enctype="multipart/form-data">
+                    @method('PATCH')
                     @csrf
+
+                    <input type="hidden" name="id" value="{{ $blog->id }}">
+
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class="form-control form-control-lg" id="title"

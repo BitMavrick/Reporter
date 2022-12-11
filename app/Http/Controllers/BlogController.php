@@ -154,6 +154,10 @@ class BlogController extends Controller
         return redirect()->route('blog', $blog->id);
     }
 
+    public function updating(Request $request)
+    {
+    }
+
     public function updateMainImage(Request $request)
     {
 
@@ -231,6 +235,8 @@ class BlogController extends Controller
         View()->share('all_tag', $all_tag);
         return view('user.blog_update');
     }
+
+
 
     public function remove(Request $request)
     {
