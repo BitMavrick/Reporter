@@ -44,6 +44,7 @@ class BlogController extends Controller
 
             return view('user.article');
         } else {
+            Session::flash('dump', "Article does not exist!");
             return redirect()->route('404');
         }
     }
