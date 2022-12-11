@@ -32,12 +32,15 @@ class BlogController extends Controller
             $user = User::where('username', $blog->owner)->first();
             $profile = profile::where('username', $blog->owner)->first();
 
+            // Calculate reading time (In minutes)
+            $total_word = (strlen($blog->description) + strlen($blog->introduction) + strlen($blog->title)) / 5;
+            $reading_time = intval(round($total_word / 183));
+
             View()->share('writter', $user);
             View()->share('profile', $profile);
             View()->share('blog', $blog);
             View()->share('tags', $tags);
-
-            Session::flash('message', "Special message goes here");
+            View()->share('reading_time', $reading_time);
 
             return view('user.article');
         } else {
@@ -148,6 +151,43 @@ class BlogController extends Controller
         $user_blog->save();
 
         Session::flash('new', "Your article has been published successfully! If you need any modification in your article, you can do it. Just scroll down to the bottom of the article.");
+        return redirect()->route('blog', $blog->id);
+    }
+
+    public function updateMainImage(Request $request)
+    {
+
+        $request->validate([
+            'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
+        ]);
+
+        $blog = Blog::where('id', $request->id)->first();
+
+        if ($blog->owner != auth()->user()->username) {
+            return redirect()->route('404');
+        }
+
+        Storage::delete('public/blog_images/' . $blog->main_image);
+
+        $extension = $request->file('primary_image')->getClientOriginalExtension();
+        $filename = date('Y-m-d') . '_' . time() . '.' . $extension;
+
+        $image = $request->file('primary_image');
+        $image_resize = Image::make($image->getRealPath());
+        $image_resize->fit(1280, 720, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        /* Tips:
+            So I learned that if this method raised an error like cant save on that route,
+            I just have you to create folder manually. EX. storage/app/public/blog_images
+            thats it.
+            */
+        $image_resize->save(storage_path('app/public/blog_images/' . $filename));
+        $blog->main_image = $filename;
+        $blog->save();
+
+        Session::flash('green', "Your article's primary image has been updated successfully!");
         return redirect()->route('blog', $blog->id);
     }
 

@@ -16,8 +16,71 @@
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <article>
-                            <img loading="lazy" decoding="async" src="/storage/blog_images/{{ $blog->main_image }}"
-                                alt="Post Thumbnail" class="w-100">
+
+                            <div class="card-image">
+                                @if( Auth::user() and (Auth::user()->username == $writter->username))
+                                <!-- Modal -->
+                                <div class="modal fade" id="primary-image-update" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" id="exampleModalLabel">Change Primary Image</h3>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="{{ route('blog.update.mainImage') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @method('PATCH')
+                                                @csrf
+
+                                                <div class="modal-body">
+
+                                                    <input type="text" name="id" hidden value="{{ $blog->id }}">
+                                                    <div class="form-group">
+                                                        <label for="cover">Primary Image</label>
+                                                        <input type="file" name="primary_image" class="form-control"
+                                                            id="cover" aria-describedby="emailHelp">
+                                                        @error('primary_image')
+                                                        <small id="emailHelp"
+                                                            class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
+                                                        <small id="emailHelp" class="form-text text-muted">The ideal
+                                                            ratio of primary image is 16:9, The
+                                                            image will be crop to fit if it is not maintain the exact
+                                                            ratio.</small>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post-info">
+                                    <span class="text-uppercase">{{$reading_time}} minutes to read</span>
+                                    <a href="#" data-toggle="modal" data-target="#primary-image-update"><span
+                                            class="text-uppercase">Change Image</span></a>
+                                </div>
+                                @else
+                                <div class="post-info">
+                                    <span class="text-uppercase">{{$reading_time}} minutes to read</span>
+                                </div>
+                                @endif
+
+                                <img loading="lazy" decoding="async" src="/storage/blog_images/{{ $blog->main_image }}"
+                                    alt="Post Thumbnail" class="w-100">
+
+                            </div>
 
                             <ul class="post-meta mb-2 mt-4">
                                 <li>
@@ -45,8 +108,6 @@
                             </h3>
                             <h1 class="my-3">{{ $blog->title }}</h1>
 
-
-
                             <ul class="post-meta mb-4">
                                 @foreach($tags as $tag)
                                 <li> <a href="/categories/destination">{{ $tag->tag_name }}</a>
@@ -66,8 +127,18 @@
 
                                 @if(isset($blog->secondary_image))
                                 <h2 id="image">Image</h2>
-                                <img loading="lazy" decoding="async" class="w-100 d-block mb-4"
-                                    src="/storage/blog_images/{{ $blog->secondary_image }}" alt="THIS IS AN IMAGE">
+
+                                <div class="card-image">
+                                    @if( Auth::user() and (Auth::user()->username == $writter->username))
+                                    <div class="post-info">
+                                        <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg"><span
+                                                class="text-uppercase">Remove Image</span></a>
+                                    </div>
+                                    @endif
+                                    <img loading="lazy" decoding="async" class="w-100 d-block mb-4"
+                                        src="/storage/blog_images/{{ $blog->secondary_image }}" alt="THIS IS AN IMAGE">
+                                </div>
+
                                 <hr>
                                 @endif
 
