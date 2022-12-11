@@ -59,8 +59,9 @@
 
                     <div class="form-group mt-4">
                         <label for="tags">Tags</label>
-                        <input type="text" class="form-control form-control-lg" name="tags"
-                            value="{{ Auth::user()->name }}" aria-describedby="emailHelp" required>
+                        <input type="text" class="form-control form-control-lg" name="tags" @if(old('tags') !==null)
+                            value="{{ old('tags') }}" @else value="{{ Auth::user()->name }}" @endif
+                            aria-describedby="emailHelp" required>
                         <small id="emailHelp" class="form-text text-muted">Tags will be separated via comma (,). You
                             must enter at least one tag</small>
                         @error('tags')
