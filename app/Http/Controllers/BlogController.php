@@ -361,11 +361,4 @@ class BlogController extends Controller
         Session::flash('red', "Your article has been removed successfully!");
         return redirect()->route('home');
     }
-
-    public function like(Request $request)
-    {
-        $blog = Blog::where('id', $request->blog_id)->first();
-
-        return response()->json(['success' => $blog->title]);
-    }
 }
