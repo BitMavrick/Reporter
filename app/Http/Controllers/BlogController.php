@@ -32,15 +32,10 @@ class BlogController extends Controller
             $user = User::where('username', $blog->owner)->first();
             $profile = profile::where('username', $blog->owner)->first();
 
-            // Calculate reading time (In minutes)
-            $total_word = (strlen($blog->description) + strlen($blog->introduction) + strlen($blog->title)) / 5;
-            $reading_time = intval(round($total_word / 183));
-
             View()->share('writter', $user);
             View()->share('profile', $profile);
             View()->share('blog', $blog);
             View()->share('tags', $tags);
-            View()->share('reading_time', $reading_time);
 
             return view('user.article');
         } else {
@@ -124,10 +119,19 @@ class BlogController extends Controller
             $blog->video_link = $link_value;
         }
 
+        // Calculate reading time (In minutes)
+        $total_word = (strlen($request->description) + strlen($request->introduction) + strlen($request->title)) / 5;
+        $reading_time = intval(round($total_word / 183));
+
+        if ($reading_time == 0) {
+            $reading_time = 1;
+        }
+
         // create & Saving the blog
         $blog->title = $request->title;
         $blog->introduction = $request->introduction;
         $blog->description = $request->description;
+        $blog->reading_time = $reading_time;
         $blog->owner = auth()->user()->username;
         $blog->save();
 
@@ -145,6 +149,8 @@ class BlogController extends Controller
             $blog_tag->tag_name = $tags[$i];
             $blog_tag->save();
         }
+
+
 
         // create & Saving the user_blog
         $user_blog = new User_blog;
@@ -243,10 +249,19 @@ class BlogController extends Controller
             $blog->video_link = $link_value;
         }
 
+        // Calculate reading time (In minutes)
+        $total_word = (strlen($request->description) + strlen($request->introduction) + strlen($request->title)) / 5;
+        $reading_time = intval(round($total_word / 183));
+
+        if ($reading_time == 0) {
+            $reading_time = 1;
+        }
+
 
         $blog->title = $request->title;
         $blog->introduction = $request->introduction;
         $blog->description = $request->description;
+        $blog->reading_time = $reading_time;
         $blog->save();
 
         Session::flash('green', "Your article has been modified successfully!");

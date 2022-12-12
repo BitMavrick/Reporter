@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('description', 2000);
             $table->string('secondary_image')->nullable();
             $table->string('video_link')->nullable();
+            $table->string('reading_time')->nullable();
             $table->timestamps();
 
             $table->foreign('owner')->references('username')->on('users')->cascadeOnDelete();

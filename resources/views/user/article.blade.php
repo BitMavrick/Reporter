@@ -63,13 +63,13 @@
                                     </div>
                                 </div>
                                 <div class="post-info">
-                                    <span class="text-uppercase">{{$reading_time}} minutes to read</span>
+                                    <span class="text-uppercase">{{$blog->reading_time}} minutes to read</span>
                                     <a href="#" data-toggle="modal" data-target="#primary-image-update"><span
                                             class="text-uppercase">Change Image</span></a>
                                 </div>
                                 @else
                                 <div class="post-info">
-                                    <span class="text-uppercase">{{$reading_time}} minutes to read</span>
+                                    <span class="text-uppercase">{{$blog->reading_time}} minutes to read</span>
                                 </div>
                                 @endif
 
