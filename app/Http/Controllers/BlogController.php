@@ -57,10 +57,10 @@ class BlogController extends Controller
     public function creating(Request $request)
     {
         $request->validate([
-            'title' => 'required | min:2 | max:150',
+            'title' => 'required | min:10 | max:150',
             'primary_image' => 'required | image | mimes:jpeg,png,jpg | max:5120',
-            'introduction' => 'required | min:10 | max:1200',
-            'description' => 'required | min:10 | max:4000',
+            'introduction' => 'required | min:40 | max:1200',
+            'description' => 'required | min:100 | max:4000',
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
         ]);
 

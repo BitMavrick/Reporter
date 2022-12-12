@@ -95,17 +95,24 @@
 
 
                                     @if($my_react)
-                                    <a href="#" id="like" style="background-color: white;"><i
+                                    <a id="like" style="background-color: white;"><i
                                             class="fa-solid fa-2x fa-heart text-danger m-1"></i></a>
                                     @else
-                                    <a href="#" id="like" style="background-color: white;"><i
+                                    <a id="like" style="background-color: white;"><i
                                             class="fa-regular fa-2x fa-heart text-danger m-1"></i></a>
 
                                     @endif
 
 
                                     @else
-                                    <i class="fa-regular fa-2x fa-heart text-secondary m-1 mr-2"></i>
+
+                                    <a onclick="myFunction()" style="background-color: white;"><i
+                                            class="fa-regular fa-2x fa-heart text-secondary m-1 mr-2"></i></a>
+                                    <script>
+                                    function myFunction() {
+                                        alert("You have to sign in to react to this article.");
+                                    }
+                                    </script>
 
                                     @endif
 
