@@ -327,7 +327,7 @@ class BlogController extends Controller
         $blog->secondary_image = null;
         $blog->save();
 
-        Session::flash('red', "Your article's secondary image has been removed. You can set it again from re-write arcticle section.");
+        Session::flash('red', "Your article's secondary image has been removed. You can set it again from re-write article section.");
         return redirect()->route('blog', $blog->id);
     }
 

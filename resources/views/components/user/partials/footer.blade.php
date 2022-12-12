@@ -18,6 +18,6 @@
             </div>
         </div>
     </div>
-    <div class="copyright bg-dark content">Designed &amp; Developed By <a
-            href="https://themefisher.com/">Themefisher</a></div>
+    <div class="copyright bg-dark content">Designed By <a href="https://themefisher.com/">Themefisher</a> &amp;
+        Developed By <a href="https://github.com/TheAlter71">Mehedi Hasan</a> &copy; 2023 </div>
 </footer>
