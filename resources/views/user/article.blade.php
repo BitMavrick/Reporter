@@ -103,9 +103,12 @@
                                     <h2 class="ml-1">69</h2>
                                 </li>
 
+                                @if(Auth::user())
+
                                 <input type="text" name="user_id" id="user_id" value="{{ Auth::user()->username }}"
                                     hidden>
                                 <input type="text" name="blog_id" id="blog_id" value="{{ $blog->id }}" hidden>
+
 
                                 <script>
                                 document.getElementById('like').addEventListener('click', click_event)
@@ -114,8 +117,6 @@
 
                                     if (document.getElementById('like').innerHTML ==
                                         '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
-
-
 
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-solid fa-2x fa-heart text-danger m-1"></i>'
@@ -140,11 +141,6 @@
                                             },
                                         })
 
-
-
-
-
-
                                     } else {
 
                                         document.getElementById('like').innerHTML =
@@ -156,6 +152,7 @@
 
                                 }
                                 </script>
+                                @endif
 
 
                             </ul>

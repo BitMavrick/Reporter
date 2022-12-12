@@ -352,6 +352,5 @@ class BlogController extends Controller
         $blog = Blog::where('id', $request->blog_id)->first();
 
         return response()->json(['success' => $blog->title]);
-        //return redirect()->route('home');
     }
 }
