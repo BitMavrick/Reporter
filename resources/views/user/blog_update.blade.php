@@ -89,7 +89,8 @@
                             placeholder="Paste the video link here ..."
                             value="{{ old('video_link', 'https://youtu.be/'.$blog->video_link) }}">
                         <small id="emailHelp" class="form-text text-muted">Paste the sharable link, otherwise it may not
-                            work. Ex. https://youtu.be/0gNauGdOkro </small>
+                            work. (Please read terms & conditions to know more) Ex. https://youtu.be/0gNauGdOkro
+                        </small>
                     </div>
 
                     <br>
