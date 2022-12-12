@@ -12,6 +12,7 @@ use App\Models\User_blog;
 use App\Models\User;
 use App\Models\Tag;
 use App\Models\profile;
+use App\Models\React;
 
 class BlogController extends Controller
 {
@@ -31,11 +32,20 @@ class BlogController extends Controller
             $tags = Blog_tag::where('blog_id', $blog->id)->get();
             $user = User::where('username', $blog->owner)->first();
             $profile = profile::where('username', $blog->owner)->first();
+            $react = React::where('blog_id', $blog->id)->get();
+            $total_react = count($react);
+
+            if (auth()->user()) {
+                $my_react = React::where('blog_id', $blog->id)->where('user_username', auth()->user()->username)->first();
+                View()->share('my_react', $my_react);
+            }
 
             View()->share('writter', $user);
             View()->share('profile', $profile);
             View()->share('blog', $blog);
             View()->share('tags', $tags);
+            View()->share('total_react', $total_react);
+
 
             return view('user.article');
         } else {

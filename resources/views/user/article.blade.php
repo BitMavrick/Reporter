@@ -92,15 +92,23 @@
 
                                 <li class="float-right m-4 d-flex">
                                     @if(Auth::user())
+
+
+                                    @if($my_react)
+                                    <a href="#" id="like" style="background-color: white;"><i
+                                            class="fa-solid fa-2x fa-heart text-danger m-1"></i></a>
+                                    @else
                                     <a href="#" id="like" style="background-color: white;"><i
                                             class="fa-regular fa-2x fa-heart text-danger m-1"></i></a>
-                                    @else
-
-                                    <i class="fa-regular fa-2x fa-heart text-secondary m-1"></i>
 
                                     @endif
 
-                                    <h2 class="ml-1">69</h2>
+
+                                    @else
+                                    <i class="fa-regular fa-2x fa-heart text-secondary m-1 mr-2"></i>
+                                    @endif
+
+                                    <h2 class="ml-1" id="total_like">{{ $total_react }}</h2>
                                 </li>
 
                                 @if(Auth::user())
@@ -117,9 +125,12 @@
 
                                     if (document.getElementById('like').innerHTML ==
                                         '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
+                                        // if like  
 
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-solid fa-2x fa-heart text-danger m-1"></i>'
+
+
 
                                         let user_id = document.getElementById('user_id').value;
                                         let blog_id = document.getElementById('blog_id').value;
@@ -141,10 +152,33 @@
                                             },
                                         })
 
+                                        document.getElementById('total_like').innerHTML = parseInt(
+                                            document.getElementById('total_like').innerHTML) + 1;
+
                                     } else {
+
+                                        // if unlike
 
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
+
+                                        $.ajax({
+
+                                            type: "post",
+                                            url: "/dislike",
+                                            data: {
+                                                user_id: user_id,
+                                                blog_id: blog_id,
+                                                _token: '{{ csrf_token() }}'
+
+                                            },
+                                            success: function(response) {
+                                                console.log(response);
+                                            },
+                                        })
+
+                                        document.getElementById('total_like').innerHTML = parseInt(
+                                            document.getElementById('total_like').innerHTML) - 1;
 
 
 

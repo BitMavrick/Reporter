@@ -38,6 +38,7 @@ Route::patch('article/updating', [BlogController::class, 'updating'])->name('blo
 
 // Blog Reacts
 Route::post('like/', [ReactController::class, 'like'])->name('blog.like');
+Route::post('dislike/', [ReactController::class, 'dislike'])->name('blog.dislike');
 
 Route::get('category/', function () {
     return view('user.category');
