@@ -183,9 +183,9 @@ class BlogController extends Controller
         }
 
         $request->validate([
-            'title' => 'required | min:2 | max:150',
-            'introduction' => 'required | min:10 | max:1200',
-            'description' => 'required | min:10 | max:4000',
+            'title' => 'required | min:10 | max:150',
+            'introduction' => 'required | min:40 | max:1200',
+            'description' => 'required | min:100 | max:4000',
             'secondary_image' => 'image | mimes:jpeg,png,jpg | max:5120',
         ]);
 
