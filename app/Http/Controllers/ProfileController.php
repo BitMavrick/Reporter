@@ -10,6 +10,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Session;
 use App\Models\Blog;
 use App\Models\Blog_tag;
+use Illuminate\Contracts\View\View;
 
 class ProfileController extends Controller
 {
@@ -24,6 +25,10 @@ class ProfileController extends Controller
             $last_blog_tags = Blog_tag::where('blog_id', $last_blog->id)->get();
             View()->share('last_blog',  $last_blog);
             View()->share('last_blog_tags',  $last_blog_tags);
+
+            // Fetching all the latest blog posts
+            $blogs = Blog::where('owner', $username)->latest()->get();
+            View()->share('my_blogs',  $blogs);
         }
 
 

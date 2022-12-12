@@ -6,8 +6,6 @@
     <x-user.partials.navbar />
     <x-user.partials.edit_user />
 
-
-
     <main>
         <section class="section">
             <div class="container">
@@ -187,35 +185,47 @@
 
                                     @endif
 
+                                    @if(isset($my_blogs))
+                                    @foreach($my_blogs as $key=>$my_blog)
+                                    @if($key != 0)
 
                                     <!-- Article cards will be here -->
                                     <div class="col-md-6 mb-4">
                                         <article class="card article-card article-card-sm h-100">
-                                            <a href="article.html">
+                                            <a href="{{ route('blog', $my_blog->id) }}">
                                                 <div class="card-image">
-                                                    <div class="post-info"> <span class="text-uppercase">03 Jun
-                                                            2021</span>
-                                                        <span class="text-uppercase">2 minutes read</span>
+                                                    <div class="post-info"> <span class="text-uppercase">
+                                                            {{ date('M j, Y', strtotime($my_blog->created_at)) }}
+                                                        </span>
+                                                        <span class="text-uppercase">{{$my_blog->reading_time}} minutes
+                                                            to read</span>
                                                     </div>
                                                     <img loading="lazy" decoding="async"
-                                                        src="/user/images/post/post-2.jpg" alt="Post Thumbnail"
-                                                        class="w-100">
+                                                        src="/storage/blog_images/{{ $my_blog->main_image }}"
+                                                        alt="Post Thumbnail" class="w-100">
                                                 </div>
                                             </a>
                                             <div class="card-body px-0 pb-0">
 
-                                                <h2><a class="post-title" href="article.html">An
-                                                        Experiential Guide to Explore This Kingdom</a></h2>
-                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit,
-                                                    sed do eiusmod tempor incididunt ut labore et dolore magna …</p>
-                                                <div class="content"> <a class="read-more-btn" href="article.html">Read
+                                                <h2><a class="post-title"
+                                                        href="{{ route('blog', $my_blog->id) }}">{{$my_blog->title}}</a>
+                                                </h2>
+                                                <p class="card-text">
+                                                    {{ Str::limit($last_blog->introduction, 100) }}
+                                                </p>
+                                                <div class="content"> <a class="read-more-btn"
+                                                        href="{{ route('blog', $my_blog->id) }}">Read
                                                         Full
                                                         Article</a>
                                                 </div>
                                             </div>
                                         </article>
                                     </div>
+
+
+                                    @endif
+                                    @endforeach
+                                    @endif
 
 
 
