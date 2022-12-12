@@ -107,7 +107,7 @@
 
                         <div class="row no-gutters-lg">
                             <div class="col-12">
-                                <h2 class="section-title">Recent Articles</h2>
+                                <h2 class="section-title">Last Article</h2>
                             </div>
                             <div class="col-lg-12 mb-5 mb-lg-0">
                                 <div class="row">
@@ -156,6 +156,8 @@
                                     <!-- End Latest blog -->
                                     @else
 
+
+
                                     @if(Auth::user() && Auth::user()->username == $profile_data->username)
 
                                     <div class="col-12 mb-4">
@@ -186,8 +188,12 @@
                                     @endif
 
                                     @if(isset($my_blogs))
+                                    <div class="col-12 my-4">
+                                        <h2 class="section-title">All Latest Articles</h2>
+                                        <hr>
+                                    </div>
                                     @foreach($my_blogs as $key=>$my_blog)
-                                    @if($key != 0)
+
 
                                     <!-- Article cards will be here -->
                                     <div class="col-md-6 mb-4">
@@ -221,17 +227,9 @@
                                             </div>
                                         </article>
                                     </div>
-
-
-                                    @endif
                                     @endforeach
 
                                     @endif
-
-
-
-
-
                                 </div>
                             </div>
                         </div>

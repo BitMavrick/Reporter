@@ -27,7 +27,7 @@ class ProfileController extends Controller
             View()->share('last_blog_tags',  $last_blog_tags);
 
             // Fetching all the latest blog posts
-            $blogs = Blog::where('owner', $username)->latest()->paginate(2);
+            $blogs = Blog::where('owner', $username)->latest()->paginate(4);
             View()->share('my_blogs',  $blogs);
         }
 
