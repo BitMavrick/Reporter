@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\React;
+use DB;
 
 
 class ReactController extends Controller
@@ -34,6 +35,25 @@ class ReactController extends Controller
 
         return response()->json([
             'message' => 'Reacted to blog',
+        ]);
+    }
+
+    public function dislike(Request $request)
+    {
+        $the_react = React::where('blog_id', $request->blog_id)->where('user_username', $request->user_id)->first();
+
+        if ($the_react) {
+
+            // The regular deleting system is not working here, So I used the DB class here
+            DB::delete('delete from reacts where blog_id = ? and user_username = ?', [$request->blog_id, $request->user_id]);
+
+            return response()->json([
+                'message' => 'The react has been deleted',
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'You have not reacted to this blog',
         ]);
     }
 }

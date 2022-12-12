@@ -106,6 +106,7 @@
 
                                     @else
                                     <i class="fa-regular fa-2x fa-heart text-secondary m-1 mr-2"></i>
+
                                     @endif
 
                                     <h2 class="ml-1" id="total_like">{{ $total_react }}</h2>
@@ -122,6 +123,8 @@
                                 document.getElementById('like').addEventListener('click', click_event)
 
                                 function click_event() {
+
+
 
                                     if (document.getElementById('like').innerHTML ==
                                         '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
@@ -152,6 +155,8 @@
                                             },
                                         })
 
+
+
                                         document.getElementById('total_like').innerHTML = parseInt(
                                             document.getElementById('total_like').innerHTML) + 1;
 
@@ -161,6 +166,9 @@
 
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
+
+                                        let user_id = document.getElementById('user_id').value;
+                                        let blog_id = document.getElementById('blog_id').value;
 
                                         $.ajax({
 
@@ -177,10 +185,9 @@
                                             },
                                         })
 
+
                                         document.getElementById('total_like').innerHTML = parseInt(
                                             document.getElementById('total_like').innerHTML) - 1;
-
-
 
                                     }
 
