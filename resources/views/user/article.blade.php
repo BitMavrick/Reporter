@@ -4,7 +4,11 @@
         {{ $title ?? 'Article | Reporter'}}
     </x-slot>
 
+
+
     <x-user.partials.navbar />
+
+
 
     <main>
         <section class="section">

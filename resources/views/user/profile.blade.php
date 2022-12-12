@@ -6,6 +6,8 @@
     <x-user.partials.navbar />
     <x-user.partials.edit_user />
 
+
+
     <main>
         <section class="section">
             <div class="container">
@@ -111,36 +113,102 @@
                             </div>
                             <div class="col-lg-12 mb-5 mb-lg-0">
                                 <div class="row">
+
+                                    @if(isset($last_blog))
+
+                                    <!-- Start Latest blog -->
+
                                     <div class="col-12 mb-4">
                                         <article class="card article-card">
-                                            <a href="article.html">
+                                            <a href="{{ route('blog', $last_blog->id) }}">
                                                 <div class="card-image">
-                                                    <div class="post-info"> <span class="text-uppercase">04 Jun
-                                                            2021</span>
-                                                        <span class="text-uppercase">3 minutes read</span>
+                                                    <div class="post-info"> <span class="text-uppercase">
+                                                            {{ date('M j, Y', strtotime($last_blog->created_at)) }}
+                                                        </span>
+                                                        <span class="text-uppercase">{{$last_blog->reading_time}}
+                                                            minutes to read</span>
                                                     </div>
                                                     <img loading="lazy" decoding="async"
-                                                        src="/user/images/post/post-1.jpg" alt="Post Thumbnail"
-                                                        class="w-100">
+                                                        src="/storage/blog_images/{{ $last_blog->main_image }}"
+                                                        alt="Post Thumbnail" class="w-100">
                                                 </div>
                                             </a>
                                             <div class="card-body px-0 pb-1">
                                                 <ul class="post-meta mb-2">
-                                                    <li> <a href="#!">travel</a>
-                                                        <a href="#!">news</a>
+                                                    <li>
+                                                        @foreach($last_blog_tags as $tag)
+                                                        <a href="#!">{{ $tag->tag_name }}</a>
+                                                        @endforeach
                                                     </li>
                                                 </ul>
-                                                <h2 class="h1"><a class="post-title" href="article.html">Is it Ethical
-                                                        to
-                                                        Travel
-                                                        Now?
-                                                        With that Freedom Comes Responsibility.</a></h2>
-                                                <p class="card-text">Heading Here is example of hedings. You can use
-                                                    this
-                                                    heading by following markdownify rules. For example: use # for
-                                                    heading 1
-                                                    and
-                                                    use ###### for heading 6.</p>
+                                                <h2 class="h1"><a class="post-title"
+                                                        href="{{ route('blog', $last_blog->id) }}">{{$last_blog->title}}</a>
+                                                </h2>
+                                                <p class="card-text">
+                                                    {{ Str::limit($last_blog->introduction, 300) }}
+                                                </p>
+                                                <div class="content"> <a class="read-more-btn"
+                                                        href="{{ route('blog', $last_blog->id) }}">Read
+                                                        Full
+                                                        Article</a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- End Latest blog -->
+                                    @else
+
+                                    @if(Auth::user() && Auth::user()->username == $profile_data->username)
+
+                                    <div class="col-12 mb-4">
+                                        <article class="card article-card">
+                                            <h3 class="text-center text-danger">You don't have any published article
+                                                yet.</h3>
+
+                                            <br>
+
+
+                                            <p class="text-center"><a href="{{ route('blog.create')}}"
+                                                    class="btn btn-sm btn-outline-success">Create Now</a></p>
+                                        </article>
+                                    </div>
+
+                                    @else
+
+                                    <div class="col-12 mb-4">
+                                        <article class="card article-card">
+                                            <h3 class="text-center text-danger">This user don't have any published
+                                                article
+                                                yet.</h3>
+                                        </article>
+                                    </div>
+
+                                    @endif
+
+                                    @endif
+
+
+                                    <!-- Article cards will be here -->
+                                    <div class="col-md-6 mb-4">
+                                        <article class="card article-card article-card-sm h-100">
+                                            <a href="article.html">
+                                                <div class="card-image">
+                                                    <div class="post-info"> <span class="text-uppercase">03 Jun
+                                                            2021</span>
+                                                        <span class="text-uppercase">2 minutes read</span>
+                                                    </div>
+                                                    <img loading="lazy" decoding="async"
+                                                        src="/user/images/post/post-2.jpg" alt="Post Thumbnail"
+                                                        class="w-100">
+                                                </div>
+                                            </a>
+                                            <div class="card-body px-0 pb-0">
+
+                                                <h2><a class="post-title" href="article.html">An
+                                                        Experiential Guide to Explore This Kingdom</a></h2>
+                                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit,
+                                                    sed do eiusmod tempor incididunt ut labore et dolore magna …</p>
                                                 <div class="content"> <a class="read-more-btn" href="article.html">Read
                                                         Full
                                                         Article</a>
@@ -148,8 +216,9 @@
                                             </div>
                                         </article>
                                     </div>
-                                    <!-- Article cards will be here -->
-                                    <x-user.partials.article-cards />
+
+
+
                                     <x-user.partials.pagination />
 
                                 </div>

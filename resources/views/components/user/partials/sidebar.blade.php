@@ -8,7 +8,7 @@
                         <div class="widget-body col-lg-12 btn btn-sm btn-outline-primary">
                             <div class="row justify-content-center ">
                                 <i class="fa-solid fa-2x fa-plus mr-2"></i>
-                                <span class="m-1">Create a new Blog</span>
+                                <span class="m-1">Create a new Article</span>
                             </div>
                         </div>
                     </a>

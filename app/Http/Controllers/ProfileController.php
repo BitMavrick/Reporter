@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use Session;
+use App\Models\Blog;
+use App\Models\Blog_tag;
 
 class ProfileController extends Controller
 {
@@ -15,11 +17,23 @@ class ProfileController extends Controller
     {
         $user = User::where('username', $username)->first();
 
+        // fetching the latest blog posts
+        $last_blog = Blog::where('owner', $username)->latest()->first();
+
+        if ($last_blog) {
+            $last_blog_tags = Blog_tag::where('blog_id', $last_blog->id)->get();
+            View()->share('last_blog',  $last_blog);
+            View()->share('last_blog_tags',  $last_blog_tags);
+        }
+
+
         if (!$user) {
             return redirect()->route('404');
         }
 
         View()->share('profile_data', $user);
+
+
         return view('user.profile', compact('user'));
     }
 
