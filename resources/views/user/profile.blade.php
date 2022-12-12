@@ -225,11 +225,12 @@
 
                                     @endif
                                     @endforeach
+
                                     @endif
 
 
 
-                                    <x-user.partials.pagination />
+
 
                                 </div>
                             </div>
@@ -241,6 +242,8 @@
             </div>
         </section>
     </main>
+
+    {{ $my_blogs->links() }}
 
     <x-user.partials.footer />
 
