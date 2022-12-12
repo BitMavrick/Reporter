@@ -174,7 +174,6 @@
                                     </div>
 
                                     @else
-
                                     <div class="col-12 mb-4">
                                         <article class="card article-card">
                                             <h3 class="text-center text-danger">This user don't have any published
@@ -182,14 +181,12 @@
                                                 yet.</h3>
                                         </article>
                                     </div>
-
                                     @endif
-
                                     @endif
 
                                     @if(isset($my_blogs))
                                     <div class="col-12 my-4">
-                                        <h2 class="section-title">All Latest Articles</h2>
+                                        <h2 class="section-title">All Latest Article</h2>
                                         <hr>
                                     </div>
                                     @foreach($my_blogs as $key=>$my_blog)
@@ -228,7 +225,6 @@
                                         </article>
                                     </div>
                                     @endforeach
-
                                     @endif
                                 </div>
                             </div>
@@ -240,8 +236,9 @@
             </div>
         </section>
     </main>
-
+    @if(isset($my_blogs))
     {{ $my_blogs->links() }}
+    @endif
 
     <x-user.partials.footer />
 
