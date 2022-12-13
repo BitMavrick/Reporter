@@ -8,8 +8,6 @@
 
     <x-user.partials.navbar />
 
-
-
     <main>
         <section class="section">
             <div class="container">
@@ -149,8 +147,6 @@
                                         let user_id = document.getElementById('user_id').value;
                                         let blog_id = document.getElementById('blog_id').value;
 
-                                        //console.log(user_id + " " + blog_id);
-
                                         $.ajax({
 
                                             type: "post",
@@ -166,14 +162,12 @@
                                             },
                                         })
 
-
-
                                         document.getElementById('total_like').innerHTML = parseInt(
                                             document.getElementById('total_like').innerHTML) + 1;
 
                                     } else {
 
-                                        // if unlike
+                                        // if dislike
 
                                         document.getElementById('like').innerHTML =
                                             '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
@@ -199,14 +193,11 @@
 
                                         document.getElementById('total_like').innerHTML = parseInt(
                                             document.getElementById('total_like').innerHTML) - 1;
-
                                     }
 
                                 }
                                 </script>
                                 @endif
-
-
                             </ul>
 
                             <br>

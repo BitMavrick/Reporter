@@ -21,4 +21,9 @@ class Blog extends Model
         'video_link',
         'reading_time',
     ];
+
+    public function Blog_tag()
+    {
+        return $this->belongsToMany(Blog_tag::class);
+    }
 }
