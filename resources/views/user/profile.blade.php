@@ -157,18 +157,15 @@
                                     <!-- End Latest blog -->
                                     @else
 
-
-
                                     @if(Auth::user() && Auth::user()->username == $profile_data->username)
 
                                     <div class="col-12 mb-4">
                                         <article class="card article-card">
-                                            <h3 class="text-center text-danger">You don't have any published article
+                                            <h3 class="text-center text-danger mt-3">You don't have any published
+                                                article
                                                 yet.</h3>
 
                                             <br>
-
-
                                             <p class="text-center"><a href="{{ route('blog.create')}}"
                                                     class="btn btn-sm btn-outline-success">Create Now</a></p>
                                         </article>

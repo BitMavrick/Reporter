@@ -25,7 +25,7 @@ class GoogleAuthController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
-                Session::flash('green', "Welcome back, " . $user->name . "");
+                Session::flash('green', "Welcome back, " . $user->name);
                 auth()->login($finduser);
                 return redirect('/');
             } else {

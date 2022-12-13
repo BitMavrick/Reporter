@@ -40,7 +40,7 @@ class TagController extends Controller
         return view('user.tag_filter');
     }
 
-    public function paginate($items, $perPage = 3, $page = null)
+    public function paginate($items, $perPage = 9, $page = null)
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $total = count($items);
