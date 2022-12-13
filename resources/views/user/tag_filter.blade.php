@@ -18,6 +18,8 @@
 
     @endforeach
 
+    {!! $blogs->links() !!}
+
     <x-user.partials.footer />
 
 </x-user.master>

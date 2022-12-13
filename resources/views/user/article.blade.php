@@ -20,19 +20,16 @@
                             <div class="card-image">
                                 @if( Auth::user() and (Auth::user()->username == $writter->username))
                                 <!-- Modal -->
-                                <div class="modal fade" id="primary-image-update" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="primary-image-update" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title" id="exampleModalLabel">Change Primary Image</h3>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form action="{{ route('blog.update.mainImage') }}" method="POST"
-                                                enctype="multipart/form-data">
+                                            <form action="{{ route('blog.update.mainImage') }}" method="POST" enctype="multipart/form-data">
                                                 @method('PATCH')
                                                 @csrf
 
@@ -40,11 +37,9 @@
                                                     <input type="text" name="id" hidden value="{{ $blog->id }}">
                                                     <div class="form-group">
                                                         <label for="cover">Primary Image</label>
-                                                        <input type="file" name="primary_image" class="form-control"
-                                                            id="cover" aria-describedby="emailHelp">
+                                                        <input type="file" name="primary_image" class="form-control" id="cover" aria-describedby="emailHelp">
                                                         @error('primary_image')
-                                                        <small id="emailHelp"
-                                                            class="form-text text-danger">{{ $message }}</small>
+                                                        <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
                                                         <small id="emailHelp" class="form-text text-muted">The ideal
                                                             ratio of primary image is 16:9, The
@@ -55,8 +50,7 @@
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-primary">Save changes</button>
                                                 </div>
                                             </form>
@@ -66,8 +60,7 @@
                                 </div>
                                 <div class="post-info">
                                     <span class="text-uppercase">{{$blog->reading_time}} minutes to read</span>
-                                    <a href="#" data-toggle="modal" data-target="#primary-image-update"><span
-                                            class="text-uppercase">Change Image</span></a>
+                                    <a href="#" data-toggle="modal" data-target="#primary-image-update"><span class="text-uppercase">Change Image</span></a>
                                 </div>
                                 @else
                                 <div class="post-info">
@@ -75,20 +68,16 @@
                                 </div>
                                 @endif
 
-                                <img loading="lazy" decoding="async" src="/storage/blog_images/{{ $blog->main_image }}"
-                                    alt="Post Thumbnail" class="w-100">
+                                <img loading="lazy" decoding="async" src="/storage/blog_images/{{ $blog->main_image }}" alt="Post Thumbnail" class="w-100">
 
                             </div>
 
                             <ul class="post-meta mb-2 mt-4">
                                 <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        style="margin-right:5px;margin-top:-4px" class="text-dark" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="margin-right:5px;margin-top:-4px" class="text-dark" viewBox="0 0 16 16">
                                         <path d="M5.5 10.5A.5.5 0 0 1 6 10h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z" />
-                                        <path
-                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
-                                        <path
-                                            d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                        <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                     </svg> <span>{{ date('M j, Y', strtotime($writter->created_at)) }}</span>
                                 </li>
 
@@ -97,23 +86,20 @@
 
 
                                     @if($my_react)
-                                    <a id="like" style="background-color: white;"><i
-                                            class="fa-solid fa-2x fa-heart text-danger m-1"></i></a>
+                                    <a id="like" style="background-color: white;"><i class="fa-solid fa-2x fa-heart text-danger m-1"></i></a>
                                     @else
-                                    <a id="like" style="background-color: white;"><i
-                                            class="fa-regular fa-2x fa-heart text-danger m-1"></i></a>
+                                    <a id="like" style="background-color: white;"><i class="fa-regular fa-2x fa-heart text-danger m-1"></i></a>
 
                                     @endif
 
 
                                     @else
 
-                                    <a onclick="myFunction()" style="background-color: white;"><i
-                                            class="fa-regular fa-2x fa-heart text-secondary m-1 mr-2"></i></a>
+                                    <a onclick="myFunction()" style="background-color: white;"><i class="fa-regular fa-2x fa-heart text-secondary m-1 mr-2"></i></a>
                                     <script>
-                                    function myFunction() {
-                                        alert("You have to sign in to react to this article.");
-                                    }
+                                        function myFunction() {
+                                            alert("You have to sign in to react to this article.");
+                                        }
                                     </script>
 
                                     @endif
@@ -123,79 +109,78 @@
 
                                 @if(Auth::user())
 
-                                <input type="text" name="user_id" id="user_id" value="{{ Auth::user()->username }}"
-                                    hidden>
+                                <input type="text" name="user_id" id="user_id" value="{{ Auth::user()->username }}" hidden>
                                 <input type="text" name="blog_id" id="blog_id" value="{{ $blog->id }}" hidden>
 
 
                                 <script>
-                                document.getElementById('like').addEventListener('click', click_event)
+                                    document.getElementById('like').addEventListener('click', click_event)
 
-                                function click_event() {
-
-
-
-                                    if (document.getElementById('like').innerHTML ==
-                                        '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
-                                        // if like  
-
-                                        document.getElementById('like').innerHTML =
-                                            '<i class="fa-solid fa-2x fa-heart text-danger m-1"></i>'
+                                    function click_event() {
 
 
 
-                                        let user_id = document.getElementById('user_id').value;
-                                        let blog_id = document.getElementById('blog_id').value;
+                                        if (document.getElementById('like').innerHTML ==
+                                            '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>') {
+                                            // if like  
 
-                                        $.ajax({
-
-                                            type: "post",
-                                            url: "/like",
-                                            data: {
-                                                user_id: user_id,
-                                                blog_id: blog_id,
-                                                _token: '{{ csrf_token() }}'
-
-                                            },
-                                            success: function(response) {
-                                                console.log(response);
-                                            },
-                                        })
-
-                                        document.getElementById('total_like').innerHTML = parseInt(
-                                            document.getElementById('total_like').innerHTML) + 1;
-
-                                    } else {
-
-                                        // if dislike
-
-                                        document.getElementById('like').innerHTML =
-                                            '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
-
-                                        let user_id = document.getElementById('user_id').value;
-                                        let blog_id = document.getElementById('blog_id').value;
-
-                                        $.ajax({
-
-                                            type: "post",
-                                            url: "/dislike",
-                                            data: {
-                                                user_id: user_id,
-                                                blog_id: blog_id,
-                                                _token: '{{ csrf_token() }}'
-
-                                            },
-                                            success: function(response) {
-                                                console.log(response);
-                                            },
-                                        })
+                                            document.getElementById('like').innerHTML =
+                                                '<i class="fa-solid fa-2x fa-heart text-danger m-1"></i>'
 
 
-                                        document.getElementById('total_like').innerHTML = parseInt(
-                                            document.getElementById('total_like').innerHTML) - 1;
+
+                                            let user_id = document.getElementById('user_id').value;
+                                            let blog_id = document.getElementById('blog_id').value;
+
+                                            $.ajax({
+
+                                                type: "post",
+                                                url: "/like",
+                                                data: {
+                                                    user_id: user_id,
+                                                    blog_id: blog_id,
+                                                    _token: '{{ csrf_token() }}'
+
+                                                },
+                                                success: function(response) {
+                                                    console.log(response);
+                                                },
+                                            })
+
+                                            document.getElementById('total_like').innerHTML = parseInt(
+                                                document.getElementById('total_like').innerHTML) + 1;
+
+                                        } else {
+
+                                            // if dislike
+
+                                            document.getElementById('like').innerHTML =
+                                                '<i class="fa-regular fa-2x fa-heart text-danger m-1"></i>'
+
+                                            let user_id = document.getElementById('user_id').value;
+                                            let blog_id = document.getElementById('blog_id').value;
+
+                                            $.ajax({
+
+                                                type: "post",
+                                                url: "/dislike",
+                                                data: {
+                                                    user_id: user_id,
+                                                    blog_id: blog_id,
+                                                    _token: '{{ csrf_token() }}'
+
+                                                },
+                                                success: function(response) {
+                                                    console.log(response);
+                                                },
+                                            })
+
+
+                                            document.getElementById('total_like').innerHTML = parseInt(
+                                                document.getElementById('total_like').innerHTML) - 1;
+                                        }
+
                                     }
-
-                                }
                                 </script>
                                 @endif
                             </ul>
@@ -204,12 +189,10 @@
 
                             <h3 class="d-inline">
                                 @if($writter->avatar)
-                                <img class="mr-2" style="max-width:7%;" src="{{$writter->avatar}}"
-                                    alt="Owner primary image">
+                                <img class="mr-2" style="max-width:7%;" src="{{$writter->avatar}}" alt="Owner primary image">
                                 @endif
 
-                                {{ $writter->name }} <span class="text-danger"><i
-                                        class="fa-solid fa-chess-king"></i></span>
+                                {{ $writter->name }} <span class="text-danger"><i class="fa-solid fa-chess-king"></i></span>
                             </h3>
                             <h1 class="my-3">{{ $blog->title }}</h1>
 
@@ -236,8 +219,7 @@
                                 <div class="card-image">
                                     @if( Auth::user() and (Auth::user()->username == $writter->username))
                                     <!-- Modal -->
-                                    <div class="modal fade" id="delete-secondary-image" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="delete-secondary-image" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <form action="{{ route('blog.delete.secondaryImage') }}" method="POST">
@@ -252,8 +234,7 @@
                                                             article option.</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">No!</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No!</button>
                                                         <button type="submit" class="btn btn-danger">Yes, I'm
                                                             sure</button>
                                                     </div>
@@ -263,12 +244,10 @@
                                     </div>
 
                                     <div class="post-info">
-                                        <a href="#" data-toggle="modal" data-target="#delete-secondary-image"><span
-                                                class="text-uppercase">Remove Image</span></a>
+                                        <a href="#" data-toggle="modal" data-target="#delete-secondary-image"><span class="text-uppercase">Remove Image</span></a>
                                     </div>
                                     @endif
-                                    <img loading="lazy" decoding="async" class="w-100 d-block mb-4"
-                                        src="/storage/blog_images/{{ $blog->secondary_image }}" alt="THIS IS AN IMAGE">
+                                    <img loading="lazy" decoding="async" class="w-100 d-block mb-4" src="/storage/blog_images/{{ $blog->secondary_image }}" alt="THIS IS AN IMAGE">
                                 </div>
 
                                 <hr>
@@ -277,11 +256,7 @@
                                 @if(isset($blog->video_link))
                                 <h2 id="youtube-video">Youtube video</h2>
                                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                                    <iframe src="https://www.youtube-nocookie.com/embed/{{$blog->video_link}}"
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
-                                        allowfullscreen title="YouTube Video"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
+                                    <iframe src="https://www.youtube-nocookie.com/embed/{{$blog->video_link}}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 @endif
                             </div>
@@ -290,8 +265,7 @@
                         @if( Auth::user() and (Auth::user()->username == $writter->username))
 
 
-                        <div class="modal fade" id="blogDelete" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="blogDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -313,8 +287,7 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">No!</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No!</button>
                                             <button type="Submit" class="btn btn-danger">Yes! I'm Sure</button>
                                         </div>
                                     </form>
@@ -324,10 +297,8 @@
                         </div>
 
                         <div class="mt-4">
-                            <a href="{{ route('blog.update', $blog->id) }}"
-                                class="btn btn-sm btn-outline-warning">Re-write Article</a>
-                            <a href="#" class="btn btn-sm btn-outline-danger" data-toggle="modal"
-                                data-target="#blogDelete">Remove
+                            <a href="{{ route('blog.update', $blog->id) }}" class="btn btn-sm btn-outline-warning">Re-write Article</a>
+                            <a href="#" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#blogDelete">Remove
                                 Article</a>
 
                         </div>
