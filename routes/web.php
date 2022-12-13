@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ReactController;
+use App\Http\Controllers\TagController;
 
 
 Route::get('/dashboard', function () {
@@ -39,6 +40,10 @@ Route::patch('article/updating', [BlogController::class, 'updating'])->name('blo
 // Blog Reacts
 Route::post('like/', [ReactController::class, 'like'])->name('blog.like');
 Route::post('dislike/', [ReactController::class, 'dislike'])->name('blog.dislike');
+
+// Blog Tags
+Route::get('article/tag/{tag}/', [TagController::class, 'tag'])->name('tag.filter');
+
 
 Route::get('category/', function () {
     return view('user.category');

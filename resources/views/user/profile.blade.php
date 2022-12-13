@@ -135,7 +135,8 @@
                                                 <ul class="post-meta mb-2">
                                                     <li>
                                                         @foreach($last_blog_tags as $tag)
-                                                        <a href="#!">{{ $tag->tag_name }}</a>
+                                                        <a
+                                                            href="{{ route('tag.filter', $tag->tag_name) }}">{{ $tag->tag_name }}</a>
                                                         @endforeach
                                                     </li>
                                                 </ul>

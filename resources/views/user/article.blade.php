@@ -224,7 +224,7 @@
 
                             <ul class="post-meta mb-4">
                                 @foreach($tags as $tag)
-                                <li> <a href="/categories/destination">{{ $tag->tag_name }}</a>
+                                <li> <a href="{{ route('tag.filter', $tag->tag_name) }}">{{ $tag->tag_name }}</a>
                                 </li>
                                 @endforeach
                             </ul>
