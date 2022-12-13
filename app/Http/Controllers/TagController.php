@@ -8,15 +8,20 @@ use App\Models\Blog;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Session;
 
 class TagController extends Controller
 {
     public function tag($tag)
     {
-        //dd($tag);
         $tags = Blog_tag::where('tag_name', $tag)->latest()->get();
 
         $total_tag = count($tags);
+
+        if ($total_tag == 0) {
+            Session::flash('dump', "There is no article exist using this tag!");
+            return redirect()->route('404');
+        }
 
         $blogs = array();
         foreach ($tags as $tag) {
@@ -30,11 +35,12 @@ class TagController extends Controller
 
         View()->share('total_tag',  $total_tag);
         View()->share('blogs',  $the_blogs);
+        View()->share('the_tag',  $tag->tag_name);
 
         return view('user.tag_filter');
     }
 
-    public function paginate($items, $perPage = 4, $page = null)
+    public function paginate($items, $perPage = 3, $page = null)
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $total = count($items);
