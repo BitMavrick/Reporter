@@ -8,7 +8,15 @@
 
     <x-user.partials.navbar />
 
-    <h1>This is the article filter page</h1>
+
+
+    <h1>Total {{ $total_tag }} Tags found </h1>
+    <hr>
+
+    @foreach($blogs as $blog)
+    <h1>{{ $blog->title }}</h1>
+
+    @endforeach
 
     <x-user.partials.footer />
 
