@@ -196,9 +196,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Manually created providers for tag management
+        App\Providers\TagServiceProvider::class,
+
     ],
 
-    /*
+    /* 
     |--------------------------------------------------------------------------
     | Class Aliases
     |--------------------------------------------------------------------------
