@@ -13,18 +13,17 @@ class TagComposer
         $all_tags = Blog_tag::all();
 
         $the_tags = [];
-        $counter = 1;
+
         foreach ($all_tags as $tag) {
             $tag_counter = Blog_tag::where('tag_name', $tag->tag_name)->count();
             $the_tags[$tag->tag_name] = $tag_counter;
-
-            if ($counter == 12) {
-                break;
-            }
-            $counter++;
         }
 
         arsort($the_tags);
+
+        array_splice($the_tags, 12);
+
+        //dd($the_tags);
 
         $view->with('top_tags', $the_tags);
     }
