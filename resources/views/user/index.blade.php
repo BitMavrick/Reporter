@@ -12,41 +12,49 @@
                 <x-user.partials.alert />
                 <div class="row no-gutters-lg">
                     <div class="col-12">
-                        <h2 class="section-title">Latest Articles</h2>
+                        <h2 class="section-title">Article Of The Day</h2>
                     </div>
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="row">
+                            @if(isset($blog_of_the_day))
                             <div class="col-12 mb-4">
                                 <article class="card article-card">
-                                    <a href="article.html">
+                                    <a href="{{ route('blog', $blog_of_the_day->id) }}">
                                         <div class="card-image">
-                                            <div class="post-info"> <span class="text-uppercase">04 Jun 2021</span>
-                                                <span class="text-uppercase">3 minutes read</span>
+                                            <div class="post-info"> <span
+                                                    class="text-uppercase">{{ date('M j, Y', strtotime($blog_of_the_day->created_at)) }}</span>
+                                                <span class="text-uppercase">{{$blog_of_the_day->reading_time }} minutes
+                                                    to
+                                                    read</span>
                                             </div>
-                                            <img loading="lazy" decoding="async" src="/user/images/post/post-1.jpg"
+                                            <img loading="lazy" decoding="async"
+                                                src="/storage/blog_images/{{ $blog_of_the_day->main_image }}"
                                                 alt="Post Thumbnail" class="w-100">
                                         </div>
                                     </a>
                                     <div class="card-body px-0 pb-1">
                                         <ul class="post-meta mb-2">
-                                            <li> <a href="#!">travel</a>
-                                                <a href="#!">news</a>
+
+                                            <li>
+                                                @foreach($blog_of_the_day_tags as $tag)
+                                                <a
+                                                    href="{{ route('tag.filter', $tag->tag_name) }}">{{ $tag->tag_name }}</a>
+                                                @endforeach
+
                                             </li>
                                         </ul>
-                                        <h2 class="h1"><a class="post-title" href="article.html">Is it Ethical to
-                                                Travel
-                                                Now?
-                                                With that Freedom Comes Responsibility.</a></h2>
-                                        <p class="card-text">Heading Here is example of hedings. You can use this
-                                            heading by following markdownify rules. For example: use # for heading 1
-                                            and
-                                            use ###### for heading 6.</p>
-                                        <div class="content"> <a class="read-more-btn" href="article.html">Read Full
+                                        <h2 class="h1"><a class="post-title"
+                                                href="{{ route('blog', $blog_of_the_day->id) }}">{{$blog_of_the_day->title }}</a>
+                                        </h2>
+                                        <p class="card-text"> {{ Str::limit($blog_of_the_day->introduction, 300) }} </p>
+                                        <div class="content"> <a class="read-more-btn"
+                                                href="{{ route('blog', $blog_of_the_day->id) }}">Read Full
                                                 Article</a>
                                         </div>
                                     </div>
                                 </article>
                             </div>
+                            @endif
                             <!-- Article cards will be here -->
                             <x-user.partials.article-cards />
 

@@ -97,10 +97,12 @@
                                         class="w-100">
                                 </div>
                                 <div class="card-body px-0 pb-1">
-                                    <h3><a class="post-title post-title-sm" href="article.html">{{$rec_blog->title}}</a>
+                                    <h3><a class="post-title post-title-sm"
+                                            href="{{ route('blog', $rec_blog->id) }}">{{$rec_blog->title}}</a>
                                     </h3>
                                     <p class="card-text"> {{ Str::limit($rec_blog->introduction, 90) }}</p>
-                                    <div class="content"> <a class="read-more-btn" href="article.html">Read Full
+                                    <div class="content"> <a class="read-more-btn"
+                                            href="{{ route('blog', $rec_blog->id) }}">Read Full
                                             Article</a>
                                     </div>
                                 </div>
