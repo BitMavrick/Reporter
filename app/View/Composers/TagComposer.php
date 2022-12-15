@@ -27,7 +27,7 @@ class TagComposer
         // Article of the best top five tags
         $copy_tags = $the_tags;
 
-        array_splice($copy_tags, 5);
+        array_splice($copy_tags, 6);
 
         $rec_blogs = [];
 
