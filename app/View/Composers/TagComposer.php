@@ -36,13 +36,7 @@ class TagComposer
             $rec_blogs[] = Blog::where('id', $blod_id)->first();
         }
 
-        //dd($rec_blogs);
-
-        $view->with(
-            [
-                'top_tags', $the_tags,
-                'rec_blogs', $rec_blogs,
-            ]
-        );
+        $view->with('rec_blogs', $rec_blogs);
+        $view->with('top_tags', $the_tags);
     }
 }
