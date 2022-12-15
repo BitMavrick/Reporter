@@ -22,13 +22,8 @@ class TagComposer
 
         arsort($the_tags);
 
-        array_splice($the_tags, 12);
-
         // Article of the best top five tags
         $copy_tags = $the_tags;
-
-
-
         $rec_blogs = [];
 
         $blog_ids = [];
@@ -43,6 +38,8 @@ class TagComposer
         foreach ($blog_ids as $id) {
             $rec_blogs[] = Blog::find($id);
         }
+
+        array_splice($the_tags, 12);
 
         $view->with('rec_blogs', $rec_blogs);
         $view->with('top_tags', $the_tags);
