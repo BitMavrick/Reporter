@@ -47,6 +47,35 @@ class HomeController extends Controller
 
     public function library()
     {
+        // Creating trendings blog
+        // fetching latest 30 reactions
+        $reacts = React::orderBy('created_at', 'desc')->take(50)->get();
+
+        // counting the number of reacts for each blog
+        $blog_reacts = [];
+        foreach ($reacts as $react) {
+            $react_count = React::where('blog_id', $react->blog_id)->count();
+            $blog_reacts[$react->blog_id] = $react_count;
+        }
+
+        arsort($blog_reacts);
+
+        $trendings = [];
+        $counter = 0;
+
+        foreach ($blog_reacts as $key => $value) {
+            $trendings[] = Blog::where('id', $key)->first();
+            $counter++;
+            if ($counter == 6) {
+                break;
+            }
+        }
+
+        // Creating latest blogs
+        $recent = Blog::orderBy('created_at', 'desc')->take(3)->get();
+
+        View()->share('trendings',  $trendings);
+        View()->share('recent',  $recent);
 
         return view('user.library');
     }

@@ -12,7 +12,7 @@ class TagServiceProvider extends ServiceProvider
     {
         View::composer([
             'components.user.partials.sidebar',
-            '*',
+            'user.library',
         ], TagComposer::class);
     }
 }
