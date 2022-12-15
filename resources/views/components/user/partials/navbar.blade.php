@@ -16,16 +16,17 @@
             </form>
             <div class="collapse navbar-collapse text-center order-lg-2 order-4" id="navigation">
                 <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
-                    <li class="nav-item"> <a class="nav-link" href="about.html" data-toggle="tooltip"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('home') }}" data-toggle="tooltip"
                             data-placement="top" title="Explore the trending articles">Explore</a>
                     </li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Articles
                         </a>
-                        <div class="dropdown-menu"> <a class="dropdown-item" href="travel.html">Travel</a>
-                            <a class="dropdown-item" href="travel.html">Lifestyle</a>
-                            <a class="dropdown-item" href="travel.html">Cruises</a>
+                        <div class="dropdown-menu"> <a class="dropdown-item" href="travel.html">Create New</a>
+                            <a class="dropdown-item" href="travel.html">My Articles</a>
+                            <a class="dropdown-item" href="travel.html">Profile</a>
+                            <a class="dropdown-item" href="travel.html">Settings</a>
                         </div>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="contact.html" data-toggle="tooltip"

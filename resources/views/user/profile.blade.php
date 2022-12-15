@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-8 ">
                         <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>
-                            <span class="mx-1">/</span> <a href="about.html">Profile</a>
+                            <span class="mx-1">/</span> <a href="#">Profile</a>
                         </div>
                     </div>
                     <div class="col-lg-8 mx-auto mb-5 mb-lg-0">

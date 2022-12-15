@@ -36,7 +36,7 @@ class HomeController extends Controller
         $blog_of_the_day_tags = Blog_tag::where('blog_id', $the_blog_id)->get();
 
         // All latest blogs
-        $latest_blogs = Blog::orderBy('created_at', 'desc')->paginate(6);
+        $latest_blogs = Blog::orderBy('created_at', 'desc')->paginate(4);
 
 
         View()->share('blog_of_the_day',  $blog_of_the_day);
