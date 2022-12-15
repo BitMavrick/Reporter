@@ -12,9 +12,7 @@
                 <div class="row">
                     <div class="col-lg-8 ">
                         <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>
-                            <span class="mx-1">/</span> <a
-                                href="{{ route('profile', Auth::user()->username) }}">Profile</a>
-                            <span class="mx-1">/</span> <a>Create</a>
+                            <span class="mx-1">/</span> <a>Create New</a>
                         </div>
                     </div>
                 </div>
