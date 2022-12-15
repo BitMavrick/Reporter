@@ -75,7 +75,7 @@ class HomeController extends Controller
         $recent = Blog::orderBy('created_at', 'desc')->take(3)->get();
 
         View()->share('trendings',  $trendings);
-        View()->share('recent',  $recent);
+        View()->share('recents',  $recent);
 
         return view('user.library');
     }
