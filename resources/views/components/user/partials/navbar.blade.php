@@ -29,7 +29,7 @@
                             <a class="dropdown-item" href="travel.html">Settings</a>
                         </div>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="contact.html" data-toggle="tooltip"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('library') }}" data-toggle="tooltip"
                             data-placement="top"
                             title="Collection of the articles based on the popular topics">Library</a>
                     </li>

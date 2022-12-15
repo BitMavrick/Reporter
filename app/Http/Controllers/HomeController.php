@@ -44,4 +44,10 @@ class HomeController extends Controller
         View()->share('latest_blogs',  $latest_blogs);
         return view('user.index');
     }
+
+    public function library()
+    {
+
+        return view('user.library');
+    }
 }
