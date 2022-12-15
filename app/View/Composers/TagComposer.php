@@ -27,13 +27,21 @@ class TagComposer
         // Article of the best top five tags
         $copy_tags = $the_tags;
 
-        array_splice($copy_tags, 6);
+
 
         $rec_blogs = [];
 
+        $blog_ids = [];
         foreach ($copy_tags as $name => $value) {
-            $blod_id = Blog_tag::where('tag_name', $name)->orderBy('blog_id', 'DESC')->first()->blog_id;
-            $rec_blogs[] = Blog::where('id', $blod_id)->first();
+            $blog_id = Blog_tag::where('tag_name', $name)->orderBy('blog_id', 'DESC')->first()->blog_id;
+            $blog_ids[] = $blog_id;
+        }
+
+        $blog_ids = array_unique($blog_ids);
+        array_splice($blog_ids, 6);
+
+        foreach ($blog_ids as $id) {
+            $rec_blogs[] = Blog::find($id);
         }
 
         $view->with('rec_blogs', $rec_blogs);
