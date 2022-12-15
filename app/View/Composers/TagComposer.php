@@ -4,6 +4,7 @@ namespace App\View\Composers;
 
 use Illuminate\View\View;
 use App\Models\Blog_tag;
+use App\Models\Blog;
 
 class TagComposer
 {
@@ -23,8 +24,25 @@ class TagComposer
 
         array_splice($the_tags, 12);
 
-        //dd($the_tags);
+        // Article of the best top five tags
+        $copy_tags = $the_tags;
 
-        $view->with('top_tags', $the_tags);
+        array_splice($copy_tags, 5);
+
+        $rec_blogs = [];
+
+        foreach ($copy_tags as $name => $value) {
+            $blod_id = Blog_tag::where('tag_name', $name)->orderBy('blog_id', 'DESC')->first()->blog_id;
+            $rec_blogs[] = Blog::where('id', $blod_id)->first();
+        }
+
+        //dd($rec_blogs);
+
+        $view->with(
+            [
+                'top_tags', $the_tags,
+                'rec_blogs', $rec_blogs,
+            ]
+        );
     }
 }
