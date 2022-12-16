@@ -79,4 +79,12 @@ class HomeController extends Controller
 
         return view('user.library');
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->keyword;
+        dd($search);
+        $blogs = Blog::where('title', 'like', '%' . $search . '%')->paginate(6);
+        return view('user.search', compact('blogs'));
+    }
 }
