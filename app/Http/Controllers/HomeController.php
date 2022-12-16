@@ -84,8 +84,9 @@ class HomeController extends Controller
     {
         $search = $request->keyword;
         //dd($search);
-        $blogs = Blog::where('title', 'like', '%' . $search . '%')->paginate(6);
+        $blogs = Blog::where('title', 'like', '%' . $search . '%');
         $total_blog = $blogs->count();
+        $blogs = $blogs->paginate(9);
 
         return view('user.search', compact('blogs', 'total_blog', 'search'));
     }
