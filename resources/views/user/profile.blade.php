@@ -41,8 +41,15 @@
                                         alt="Owner primary image">
                                     @endif
 
-                                    {{ $profile_data->name }} <span class="text-danger"><i
-                                            class="fa-solid fa-chess-king"></i></span>
+                                    {{ $profile_data->name }}
+
+                                    @if($profile_data->role == 1)
+                                    <span class="text-success"><i class="fa-solid fa-circle-check"></i></span>
+                                    @elseif($profile_data->role == 2)
+                                    <span class="text-danger"><i class="fa-solid fa-chess-king"></i></span>
+                                    @endif
+
+
                                 </h3>
                                 @if($profile_data->profile->address)
                                 <p>
