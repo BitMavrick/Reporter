@@ -83,7 +83,7 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $search = $request->keyword;
-        //dd($search);
+
         $blogs = Blog::where('title', 'like', '%' . $search . '%');
         $total_blog = $blogs->count();
         $blogs = $blogs->paginate(9);
