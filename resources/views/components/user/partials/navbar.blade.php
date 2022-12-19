@@ -51,7 +51,7 @@
                             <a class="dropdown-item" href="{{ route('blog.create')}}">Create New</a>
                             <a class="dropdown-item" href="{{ route('profile', Auth::user()->username) }}">My
                                 Profile</a>
-                            <a class="dropdown-item" href="travel.html">Settings</a>
+                            <a class="dropdown-item" href="{{ route('settings')}}">Settings</a>
                             @else
 
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#loginModal">Create

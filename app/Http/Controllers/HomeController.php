@@ -90,4 +90,9 @@ class HomeController extends Controller
 
         return view('user.search', compact('blogs', 'total_blog', 'search'));
     }
+
+    public function settings()
+    {
+        return view('user.settings');
+    }
 }

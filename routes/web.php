@@ -23,6 +23,7 @@ Route::get('auth/callback::google', [GoogleAuthController::class, 'callbackGoogl
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('library/', [HomeController::class, 'library'])->name('library');
 Route::get('search/', [HomeController::class, 'search'])->name('search');
+Route::get('settings/', [HomeController::class, 'settings'])->name('settings');
 
 
 // Profile Routes
