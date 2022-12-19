@@ -259,6 +259,11 @@ class BlogController extends Controller
             $blog->video_link = $link_value;
         }
 
+        // if video link is null
+        if ($request->video_link == null) {
+            $blog->video_link = null;
+        }
+
         // Calculate reading time (In minutes)
         $total_word = (strlen($request->description) + strlen($request->introduction) + strlen($request->title)) / 5;
         $reading_time = intval(round($total_word / 183));
@@ -349,6 +354,13 @@ class BlogController extends Controller
         $all_tag = '';
         foreach ($tags as $tag) {
             $all_tag .=  $tag->tag_name . ',';
+        }
+
+        $link = $blog->video_link;
+
+        if ($link != null) {
+            $link = 'https://youtu.be/' . $link;
+            $blog->video_link = $link;
         }
 
         View()->share('blog', $blog);
