@@ -67,10 +67,9 @@
                             {{ $profile->twitter_handle }}
                         </div>
                         </p>
-
+                        @endif
                         <a href="{{ route('profile', $writter->username) }}" class="btn btn-sm btn-outline-primary">View
                             Profile</a>
-                        @endif
                     </div>
                 </div>
             </div>

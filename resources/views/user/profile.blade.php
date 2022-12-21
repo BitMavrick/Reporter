@@ -44,8 +44,6 @@
                                         src="/storage/avatar/{{ $profile_data->avatar }}" alt="Owner primary image">
                                     @endif
 
-
-
                                     {{ $profile_data->name }}
 
                                     @if($profile_data->role == 1)
@@ -65,7 +63,7 @@
                                 </p>
                                 @endif
 
-                                @if($profile_data->profile->mail)
+                                @if($profile_data->profile->mail and $profile_data->settings->hide_mail == 0)
                                 <p>
                                 <div class="d-inline">
                                     <i class="las la-lg la-envelope"></i>
@@ -93,6 +91,7 @@
                                 @endif
 
                                 @if(Auth::user() && Auth::user()->username == $profile_data->username)
+
 
                                 <a href="" class="btn btn-sm btn-outline-warning" data-toggle="modal"
                                     data-target="#editUser">Edit Profile</a>

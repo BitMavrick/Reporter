@@ -203,8 +203,12 @@
                             <br>
 
                             <h3 class="d-inline">
-                                @if($writter->avatar)
-                                <img class="mr-2" style="max-width:7%;" src="{{$writter->avatar}}"
+
+                                @if($writter->avatar and $writter->settings->default_avatar == 1)
+                                <img class="mr-2" style="max-width:20%;" src="{{$writter->avatar}}"
+                                    alt="Owner primary image">
+                                @elseif($writter->avatar and $writter->settings->default_avatar == 0)
+                                <img class="mr-2" style="max-width:20%;" src="/storage/avatar/{{ $writter->avatar }}"
                                     alt="Owner primary image">
                                 @endif
 
