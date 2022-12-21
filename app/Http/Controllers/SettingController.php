@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use App\Models\Profile;
 use Session;
 
 class SettingController extends Controller
@@ -23,6 +24,7 @@ class SettingController extends Controller
         if (auth()->user()) {
 
             $setting = Setting::where('username', auth()->user()->username)->first();
+            $profile = Profile::where('username', auth()->user()->username)->first();
 
             if (isset($request->hide_mail)) {
                 $setting->hide_mail = true;
@@ -34,7 +36,15 @@ class SettingController extends Controller
                 $setting->apply_badge = true;
             }
 
+            $request->validate([
+                'mail' => 'required|email',
+            ]);
+
+            $profile->mail = $request->mail;
+
             $setting->save();
+            $profile->save();
+
             Session::flash('green', "Successfully save your changes!");
             return redirect()->route('settings');
         } else {
