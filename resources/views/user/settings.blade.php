@@ -26,11 +26,12 @@
                 </div>
 
                 <div class="widget">
-                    <form action="#">
+                    <form action="{{ route('settings.saving') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="widget-body mt-4">
                             <div class="form-group">
-                                <label for="cover">Change Avatar</label>
-                                <input type="file" name="avatar" class="form-control" id="cover"
+                                <label for="avatar">Change Avatar</label>
+                                <input type="file" name="avatar" class="form-control" id="avatar"
                                     aria-describedby="emailHelp">
                                 @error('primary_image')
                                 <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
@@ -44,10 +45,10 @@
 
                         <div class="widget-body mt-4">
                             <div class="form-group">
-                                <label for="cover">Change Mailing Address</label>
-                                <input type="email" name="avatar" class="form-control" id="cover"
+                                <label for="mail">Change Mailing Address</label>
+                                <input type="email" name="mail" class="form-control" id="mail"
                                     value="{{ auth()->user()->profile->mail }}" aria-describedby="emailHelp">
-                                @error('primary_image')
+                                @error('mail')
                                 <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                                 @enderror
                                 <small id="emailHelp" class="form-text text-muted">Change mailing adrress does not
@@ -58,17 +59,22 @@
 
                         <div class="widget-body mt-4">
                             <div class="form-check ml-2">
-                                <input class="form-check-input" style="margin-top: 7px;" type="checkbox" value="1"
-                                    id="defaultCheck1">
+                                <input class="form-check-input" name="hide_mail" style="margin-top: 7px;"
+                                    type="checkbox" value="1"
+                                    {{  Auth::user()->settings->hide_mail == '1' ? 'checked' : '' }} id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Hide Mail Address
                                 </label>
                             </div>
                         </div>
 
+
+
                         <div class="widget-body mt-4">
                             <div class="form-check ml-2">
-                                <input class="form-check-input" style="margin-top: 7px;" type="checkbox" value=""
+                                <input class="form-check-input" name="badge" value="1" style="margin-top: 7px;"
+                                    type="checkbox" value="1"
+                                    {{  Auth::user()->settings->apply_badge == '1' ? 'checked' : '' }}
                                     id="defaultCheck2">
                                 <label class="form-check-label" for="defaultCheck2">
                                     Apply for badge
