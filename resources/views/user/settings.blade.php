@@ -58,7 +58,7 @@
 
                         <div class="widget-body mt-4">
                             <div class="form-check ml-2">
-                                <input class="form-check-input" style="margin-top: 7px;" type="checkbox" value=""
+                                <input class="form-check-input" style="margin-top: 7px;" type="checkbox" value="1"
                                     id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Hide Mail Address

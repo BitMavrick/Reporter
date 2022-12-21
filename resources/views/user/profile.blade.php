@@ -1,6 +1,6 @@
 <x-user.master>
     <x-slot name="title">
-        {{ $title ?? 'Profile | Reporter'}}
+        {{ $title ?? $profile_data->name.' | Reporter'}}
     </x-slot>
 
     <x-user.partials.navbar />

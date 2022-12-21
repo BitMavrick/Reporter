@@ -27,7 +27,7 @@ Route::get('search/', [HomeController::class, 'search'])->name('search');
 
 // Setting Routes
 Route::get('settings/', [SettingController::class, 'settings'])->name('settings');
-
+Route::post('settings/saving', [SettingController::class, 'saving'])->name('settings.saving');
 
 // Profile Routes
 Route::get('profile/{username}/', [ProfileController::class, 'profile'])->name('profile');
