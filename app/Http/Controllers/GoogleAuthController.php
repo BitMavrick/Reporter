@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Session;
 
@@ -57,6 +58,10 @@ class GoogleAuthController extends Controller
                     'mail' => $user->email,
                     'cover_image' => 'cover.jpg',
                     'about_you' => 'Hello, This is ' . $user->name,
+                ]);
+
+                Setting::create([
+                    'username' => $username,
                 ]);
 
                 Session::flash('congrates', "Hello, " . $user->name . ". We are so happy to see you as a member of our site. Now you can unleash your writting power here! We hope that it will be a really good journey for both of us. Thank you." . "");

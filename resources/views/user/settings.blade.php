@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <label for="cover">Change Mailing Address</label>
                                 <input type="email" name="avatar" class="form-control" id="cover"
-                                    aria-describedby="emailHelp">
+                                    value="{{ auth()->user()->profile->mail }}" aria-describedby="emailHelp">
                                 @error('primary_image')
                                 <small id="emailHelp" class="form-text text-danger">{{ $message }}</small>
                                 @enderror

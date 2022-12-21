@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'username', 'username');
     }
+
+    public function settings()
+    {
+        return $this->hasOne(Setting::class, 'username', 'username');
+    }
 }

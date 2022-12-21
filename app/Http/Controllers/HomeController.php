@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Blog_tag;
 use App\Models\React;
+use Session;
 
 class HomeController extends Controller
 {
@@ -93,6 +94,11 @@ class HomeController extends Controller
 
     public function settings()
     {
-        return view('user.settings');
+        if (auth()->user()) {
+            return view('user.settings');
+        } else {
+            Session::flash('dump', "Required login to perform this action!");
+            return redirect()->route('404');
+        }
     }
 }
