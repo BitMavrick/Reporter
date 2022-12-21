@@ -36,10 +36,15 @@
                         <div class="widget">
                             <div class="widget-body">
                                 <h3 class="d-inline">
-                                    @if($profile_data->avatar)
+                                    @if($profile_data->avatar and $profile_data->settings->default_avatar == 1)
                                     <img class="mr-2" style="max-width:20%;" src="{{$profile_data->avatar}}"
                                         alt="Owner primary image">
+                                    @elseif($profile_data->avatar and $profile_data->settings->default_avatar == 0)
+                                    <img class="mr-2" style="max-width:20%;"
+                                        src="/storage/avatar/{{ $profile_data->avatar }}" alt="Owner primary image">
                                     @endif
+
+
 
                                     {{ $profile_data->name }}
 
