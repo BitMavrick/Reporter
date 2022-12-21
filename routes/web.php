@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ReactController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\SettingController;
 
 
 Route::get('/dashboard', function () {
@@ -23,7 +24,9 @@ Route::get('auth/callback::google', [GoogleAuthController::class, 'callbackGoogl
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('library/', [HomeController::class, 'library'])->name('library');
 Route::get('search/', [HomeController::class, 'search'])->name('search');
-Route::get('settings/', [HomeController::class, 'settings'])->name('settings');
+
+// Setting Routes
+Route::get('settings/', [SettingController::class, 'settings'])->name('settings');
 
 
 // Profile Routes

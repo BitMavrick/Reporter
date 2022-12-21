@@ -95,14 +95,4 @@ class HomeController extends Controller
 
         return view('user.search', compact('blogs', 'total_blog', 'search'));
     }
-
-    public function settings()
-    {
-        if (auth()->user()) {
-            return view('user.settings');
-        } else {
-            Session::flash('dump', "Required login to perform this action!");
-            return redirect()->route('404');
-        }
-    }
 }
