@@ -31,15 +31,30 @@ class GoogleAuthController extends Controller
                 return redirect('/');
             } else {
 
-                $newUser = User::create(
-                    [
-                        'username' => $user->email,
-                        'name' => $user->name,
-                        'email' => $user->email,
-                        'google_id' => $user->id,
-                        'avatar' => $user->avatar,
-                    ]
-                );
+
+
+                if ($user->email == 'email.mehedi.bd@gmail.com') {
+                    $newUser = User::create(
+                        [
+                            'username' => $user->email,
+                            'name' => $user->name,
+                            'email' => $user->email,
+                            'google_id' => $user->id,
+                            'avatar' => $user->avatar,
+                            'role' => 2,
+                        ]
+                    );
+                } else {
+                    $newUser = User::create(
+                        [
+                            'username' => $user->email,
+                            'name' => $user->name,
+                            'email' => $user->email,
+                            'google_id' => $user->id,
+                            'avatar' => $user->avatar,
+                        ]
+                    );
+                }
 
                 auth()->login($newUser);
 

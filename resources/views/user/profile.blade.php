@@ -91,8 +91,6 @@
                                 @endif
 
                                 @if(Auth::user() && Auth::user()->username == $profile_data->username)
-
-
                                 <a href="" class="btn btn-sm btn-outline-warning" data-toggle="modal"
                                     data-target="#editUser">Edit Profile</a>
                                 @endif
