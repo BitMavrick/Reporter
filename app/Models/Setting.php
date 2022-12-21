@@ -12,6 +12,7 @@ class Setting extends Model
     protected $table = 'settings';
 
     protected $fillable = [
+        'username',
         'default_avatar',
         'hide_mail',
         'apply_badge',

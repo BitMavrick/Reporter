@@ -30,19 +30,23 @@ class HomeController extends Controller
             break;
         }
 
-        // Fetching the blog of the day
-        $blog_of_the_day = Blog::where('id', $the_blog_id)->first();
+        if (isset($the_blog_id)) {
+            // Fetching the blog of the day
+            $blog_of_the_day = Blog::where('id', $the_blog_id)->first();
 
-        // Fetching tags for blog of the day
-        $blog_of_the_day_tags = Blog_tag::where('blog_id', $the_blog_id)->get();
+            // Fetching tags for blog of the day
+            $blog_of_the_day_tags = Blog_tag::where('blog_id', $the_blog_id)->get();
 
-        // All latest blogs
-        $latest_blogs = Blog::orderBy('created_at', 'desc')->paginate(4);
+            // All latest blogs
+            $latest_blogs = Blog::orderBy('created_at', 'desc')->paginate(4);
 
 
-        View()->share('blog_of_the_day',  $blog_of_the_day);
-        View()->share('blog_of_the_day_tags',  $blog_of_the_day_tags);
-        View()->share('latest_blogs',  $latest_blogs);
+            View()->share('blog_of_the_day',  $blog_of_the_day);
+            View()->share('blog_of_the_day_tags',  $blog_of_the_day_tags);
+            View()->share('latest_blogs',  $latest_blogs);
+        }
+
+
         return view('user.index');
     }
 
