@@ -74,10 +74,11 @@
                             <div class="form-check ml-2">
                                 <input class="form-check-input" name="badge" value="1" style="margin-top: 7px;"
                                     type="checkbox" value="1"
-                                    {{  Auth::user()->settings->apply_badge == '1' ? 'checked' : '' }}
+                                    {{  Auth::user()->settings->apply_badge == '1' ? 'checked disabled' : '' }}
                                     id="defaultCheck2">
                                 <label class="form-check-label" for="defaultCheck2">
                                     Apply for badge
+                                    {{ Auth::user()->settings->apply_badge == '1' ? '(Already Applied)' : '' }}
                                 </label>
                             </div>
                         </div>

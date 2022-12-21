@@ -32,8 +32,6 @@ class SettingController extends Controller
 
             if (isset($request->badge)) {
                 $setting->apply_badge = true;
-            } else {
-                $setting->apply_badge = false;
             }
 
             $setting->save();
