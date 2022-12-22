@@ -15,7 +15,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Hello, <span>Welcome Here</span></h1>
+                                <h1>Quick Overview</h1>
                             </div>
                         </div>
                     </div>
@@ -41,8 +41,8 @@
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Total Profit</div>
-                                        <div class="stat-digit">1,012</div>
+                                        <div class="stat-text">Total Articles</div>
+                                        <div class="stat-digit">{{ $total_blogs }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -53,8 +53,8 @@
                                     <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">New Customer</div>
-                                        <div class="stat-digit">961</div>
+                                        <div class="stat-text">Total Users</div>
+                                        <div class="stat-digit">{{ $total_users }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@
                                     <div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Active Projects</div>
-                                        <div class="stat-digit">770</div>
+                                        <div class="stat-text">Total Reacts</div>
+                                        <div class="stat-digit">{{ $total_reacts }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -76,12 +76,73 @@
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Referral</div>
-                                        <div class="stat-digit">2,781</div>
+                                        <div class="stat-text">Total Tags</div>
+                                        <div class="stat-digit">{{ $total_tags }}</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8 p-r-0 title-margin-right">
+                            <div class="page-header">
+                                <div class="page-title">
+                                    <h1>All Users</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="jsgrid-table-panel">
+                                    <div id="jsGrid">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">PK</th>
+                                                    <th scope="col">Username</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($users as $user)
+
+                                                <tr>
+                                                    <th scope="row">{{$user->id}}</th>
+                                                    <td>{{$user->username}}</td>
+                                                    <td>{{$user->name}}</td>
+                                                    <td>{{$user->email}}</td>
+                                                    <td>
+                                                        @if ($user->role == '0')
+                                                        <span class="badge badge-secondary">User</span>
+                                                        @elseif($user->role == '2')
+                                                        <span class="badge badge-danger">Admin</span>
+                                                        @elseif($user->role == '1')
+                                                        <span class="badge badge-success">Verified</span>
+                                                        @elseif($user->role == '3')
+                                                        <span class="badge badge-warning">Banned</span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary btn-sm">Change Role</a>
+                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                    </td>
+                                                </tr>
+
+                                                @endforeach
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <!-- /# column -->
                     </div>
 
 

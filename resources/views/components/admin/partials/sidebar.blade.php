@@ -9,7 +9,7 @@
 
                 <li class="label">Options</li>
 
-                <li class="active"><a href="app-profile.html"><i class="ti-user"></i> Users</a></li>
+                <li class="active"><a href="{{ route('super.home') }}"><i class="ti-user"></i> Users</a></li>
                 <li><a href="../documentation/index.html"><i class="ti-file"></i> Articles</a></li>
 
                 <li><a><i class="ti-close"></i> Logout</a></li>
