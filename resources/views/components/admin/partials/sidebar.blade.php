@@ -2,8 +2,8 @@
     <div class="nano">
         <div class="nano-content">
             <ul>
-                <div class="logo"><a href="index.html">
-                        <!-- <img src="images/logo.png" alt="" /> --><span>Reporter</span>
+                <div class="logo"><a href="{{ route('super.home') }}">
+                        <span>Reporter Admin</span>
                     </a></div>
 
 

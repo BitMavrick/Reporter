@@ -22,7 +22,6 @@ class AdminController extends Controller
         $total_blogs = count($blogs);
         $total_tags = count($tags);
         $total_reacts = count($reacts);
-
         $all_users = User::paginate(15);
 
 
