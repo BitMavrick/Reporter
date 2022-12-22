@@ -5,7 +5,6 @@
     </x-slot>
 
     <x-admin.partials.navbar />
-
     <x-admin.partials.sidebar />
 
     <div class="content-wrap">

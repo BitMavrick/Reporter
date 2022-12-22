@@ -23,7 +23,7 @@ class AdminController extends Controller
         $total_tags = count($tags);
         $total_reacts = count($reacts);
 
-        $all_users = User::paginate(1);
+        $all_users = User::paginate(15);
 
 
         View()->share('users', $all_users);
@@ -31,13 +31,16 @@ class AdminController extends Controller
         View()->share('total_blogs', $total_blogs);
         View()->share('total_tags', $total_tags);
         View()->share('total_reacts', $total_reacts);
+        View()->share('side_val', 'users');
+
 
         return view('admin.index');
     }
 
-    public function users()
+    public function articles()
     {
         $users = User::all();
-        return view('admin.users', compact('users'));
+        View()->share('side_val', 'articles');
+        return view('admin.articles', compact('users'));
     }
 }

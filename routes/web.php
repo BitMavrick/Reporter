@@ -49,7 +49,7 @@ Route::get('article/tag/{tag}/', [TagController::class, 'tag'])->name('tag.filte
 
 // Admin Routes
 Route::get('super/', [AdminController::class, 'home'])->name('super.home');
-Route::get('super/users/', [AdminController::class, 'users'])->name('super.users');
+Route::get('super/articles/', [AdminController::class, 'articles'])->name('super.articles');
 
 
 

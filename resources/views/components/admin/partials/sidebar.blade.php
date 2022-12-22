@@ -9,8 +9,11 @@
 
                 <li class="label">Options</li>
 
-                <li class="active"><a href="{{ route('super.home') }}"><i class="ti-user"></i> Users</a></li>
-                <li><a href="../documentation/index.html"><i class="ti-file"></i> Articles</a></li>
+                <li {{ $side_val == 'users' ? 'class="active"' : '' }}><a href="{{ route('super.home') }}"><i
+                            class="ti-user"></i> Users</a></li>
+                <li {{ $side_val == 'articles' ? 'class="active"' : '' }}><a href="{{ route('super.articles') }}"><i
+                            class="ti-file"></i>
+                        Articles</a></li>
 
                 <li><a><i class="ti-close"></i> Logout</a></li>
             </ul>
