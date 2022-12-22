@@ -140,6 +140,10 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="mt-4">
+                                {{ $users->links() }}
+                            </div>
                             <!-- /# card -->
                         </div>
                         <!-- /# column -->
@@ -147,6 +151,7 @@
 
 
                     <!-- Footer will be here -->
+
                     <x-admin.partials.footer />
 
                 </section>

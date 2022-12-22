@@ -23,8 +23,10 @@ class AdminController extends Controller
         $total_tags = count($tags);
         $total_reacts = count($reacts);
 
+        $all_users = User::paginate(1);
 
-        View()->share('users', $users);
+
+        View()->share('users', $all_users);
         View()->share('total_users', $total_users);
         View()->share('total_blogs', $total_blogs);
         View()->share('total_tags', $total_tags);
