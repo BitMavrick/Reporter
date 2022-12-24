@@ -36,6 +36,13 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function delete_user(Request $request)
+    {
+        $user = User::where('username', $request->username)->first();
+        $user->delete();
+        return redirect()->route('super.home');
+    }
+
     public function articles()
     {
         $users = User::all();

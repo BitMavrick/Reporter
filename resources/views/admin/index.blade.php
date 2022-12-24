@@ -108,10 +108,37 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($users as $user)
+                                                <div class="modal fade" id="role{{$user->id}}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal
+                                                                    title</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ...
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Save
+                                                                    changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="modal fade" id="{{$user->id}}" tabindex="-1" role="dialog"
                                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <form action="#">
+                                                        <form action="{{route('super.user_delete')}}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="exampleModalLongTitle">
@@ -125,6 +152,8 @@
                                                                     <p>Username: {{$user->username}}</p>
                                                                     <p>Email: {{$user->email}}</p>
                                                                     <p class="text-danger">Deleteing this user?</p>
+                                                                    <input type="text" name="username" hidden
+                                                                        value="{{$user->username}}">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
@@ -136,7 +165,6 @@
                                                         </form>
                                                     </div>
                                                 </div>
-
                                                 <tr>
                                                     <th scope="row">{{$user->id}}</th>
                                                     <td>{{$user->username}}</td>
@@ -154,15 +182,13 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="#" class="btn btn-primary btn-sm">Change Role</a>
+                                                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                            data-target="#role{{$user->id}}">Change Role</a>
                                                         <a href="" class="btn btn-danger btn-sm" data-toggle="modal"
                                                             data-target="#{{$user->id}}">Delete</a>
                                                     </td>
                                                 </tr>
-
                                                 @endforeach
-
-
                                             </tbody>
                                         </table>
                                     </div>
