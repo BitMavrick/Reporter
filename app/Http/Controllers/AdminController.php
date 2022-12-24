@@ -38,7 +38,10 @@ class AdminController extends Controller
 
     public function change_role(Request $request)
     {
-        dd($request->all());
+        $user = User::where('username', $request->username)->first();
+        $user->role = $request->role;
+        $user->save();
+        return redirect()->route('super.home');
     }
 
     public function delete_user(Request $request)

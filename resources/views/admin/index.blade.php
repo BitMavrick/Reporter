@@ -127,6 +127,9 @@
                                                                     <p>Username: {{$user->username}}</p>
                                                                     <p>Email: {{$user->email}}</p>
 
+                                                                    <input type="text" name="username" hidden
+                                                                        value="{{$user->username}}">
+
                                                                     <div class="form-group">
                                                                         <label for="exampleFormControlSelect1">Select
                                                                             Role:</label>
