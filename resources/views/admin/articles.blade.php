@@ -16,7 +16,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>User Panel</h1>
+                                <h1>All Articles</h1>
                             </div>
                         </div>
                     </div>
@@ -45,34 +45,53 @@
                                                 <tr>
                                                     <th scope="col">PK</th>
                                                     <th scope="col">Username</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Title</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($users as $user)
+                                                @foreach ($articles as $blog)
+
+                                                <div class="modal fade" id="{{$blog->id}}" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <form action="{{route('super.blog_delete')}}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                        Delete User</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Writer: {{$blog->owner}}</p>
+                                                                    <p>Title: {{$blog->title}}</p>
+                                                                    <p class="text-danger">Deleteing this article?</p>
+                                                                    <input type="text" name="blog_id" hidden
+                                                                        value="{{$blog->id}}">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-danger">Delete
+                                                                        Article</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
 
                                                 <tr>
-                                                    <th scope="row">{{$user->id}}</th>
-                                                    <td>{{$user->username}}</td>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
+                                                    <th scope="row">{{$blog->id}}</th>
+                                                    <td>{{$blog->owner}}</td>
+                                                    <td>{{$blog->title}}</td>
                                                     <td>
-                                                        @if ($user->role == '0')
-                                                        <span class="badge badge-secondary">User</span>
-                                                        @elseif($user->role == '1')
-                                                        <span class="badge badge-danger">Admin</span>
-                                                        @elseif($user->role == '2')
-                                                        <span class="badge badge-success">Verified</span>
-                                                        @elseif($user->role == '3')
-                                                        <span class="badge badge-warning">Banned</span>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-primary btn-sm">Update</a>
-                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                        <a href="#" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                            data-target="#{{$blog->id}}">Delete</a>
                                                     </td>
                                                 </tr>
 
@@ -83,6 +102,9 @@
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="mt-4">
+                                {{ $articles->links() }}
                             </div>
                             <!-- /# card -->
                         </div>

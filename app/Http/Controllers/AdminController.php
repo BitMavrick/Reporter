@@ -54,7 +54,17 @@ class AdminController extends Controller
     public function articles()
     {
         $users = User::all();
+        $blogs = Blog::paginate(20);
         View()->share('side_val', 'articles');
+        View()->share('articles', $blogs);
         return view('admin.articles', compact('users'));
+    }
+
+    public function delete_blog(Request $request)
+    {
+        dd($request->all());
+        $blog = Blog::where('id', $request->blog_id)->first();
+        $blog->delete();
+        return redirect()->route('super.articles');
     }
 }
