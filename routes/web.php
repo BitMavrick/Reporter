@@ -50,6 +50,7 @@ Route::get('article/tag/{tag}/', [TagController::class, 'tag'])->name('tag.filte
 // Admin Routes
 Route::get('super/', [AdminController::class, 'home'])->name('super.home');
 Route::delete('super/user_delete', [AdminController::class, 'delete_user'])->name('super.user_delete');
+Route::patch('super/change_role', [AdminController::class, 'change_role'])->name('super.change_role');
 Route::get('super/articles/', [AdminController::class, 'articles'])->name('super.articles');
 
 

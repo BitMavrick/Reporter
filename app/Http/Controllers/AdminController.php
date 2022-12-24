@@ -36,6 +36,11 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function change_role(Request $request)
+    {
+        dd($request->all());
+    }
+
     public function delete_user(Request $request)
     {
         $user = User::where('username', $request->username)->first();

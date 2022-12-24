@@ -37,11 +37,11 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
+                                    <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Total Articles</div>
-                                        <div class="stat-digit">{{ $total_blogs }}</div>
+                                        <div class="stat-text">Total Users</div>
+                                        <div class="stat-digit">{{ $total_users }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -49,11 +49,11 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                                    <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Total Users</div>
-                                        <div class="stat-digit">{{ $total_users }}</div>
+                                        <div class="stat-text">Total Articles</div>
+                                        <div class="stat-digit">{{ $total_blogs }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-lg-8 p-r-0 title-margin-right">
                             <div class="page-header">
@@ -112,25 +111,41 @@
                                                     role="dialog" aria-labelledby="exampleModalCenterTitle"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal
-                                                                    title</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
+                                                        <form action="{{route('super.change_role')}}" method="post">
+                                                            @method('PATCH')
+                                                            @csrf
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                        Change Users Role</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Username: {{$user->username}}</p>
+                                                                    <p>Email: {{$user->email}}</p>
+
+                                                                    <div class="form-group">
+                                                                        <label for="exampleFormControlSelect1">Select
+                                                                            Role:</label>
+                                                                        <select class="form-control"
+                                                                            id="exampleFormControlSelect1" name="role">
+                                                                            <option value="0">Normal User</option>
+                                                                            <option value="1">Verified User</option>
+                                                                            <option value="2">Admin User</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                        changes</button>
+                                                                </div>
                                                             </div>
-                                                            <div class="modal-body">
-                                                                ...
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div class="modal fade" id="{{$user->id}}" tabindex="-1" role="dialog"
