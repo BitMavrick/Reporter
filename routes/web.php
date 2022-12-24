@@ -11,7 +11,7 @@ use App\Http\Controllers\ReactController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\SettingController;
 
-// Authentication Routes
+// Google Authentication Routes
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google.auth');
 Route::get('auth/callback::google', [GoogleAuthController::class, 'callbackGoogle']);
 
@@ -45,7 +45,6 @@ Route::post('dislike/', [ReactController::class, 'dislike'])->name('blog.dislike
 
 // Blog Tags
 Route::get('article/tag/{tag}/', [TagController::class, 'tag'])->name('tag.filter');
-
 
 // Admin Routes
 Route::get('super/', [AdminController::class, 'home'])->name('super.home');

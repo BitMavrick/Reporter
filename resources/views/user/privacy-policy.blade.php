@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <div class="breadcrumbs mb-4"> <a href="index.html">Home</a>
+                        <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>
                             <span class="mx-1">/</span> <a href="#!">Privacy policy</a>
                         </div>
                     </div>

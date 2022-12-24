@@ -1,7 +1,7 @@
 <x-user.master>
 
     <x-slot name="title">
-        {{ $title ?? 'Privacy & Policy | Reporter'}}
+        {{ $title ?? 'Terms & Conditions | Reporter'}}
     </x-slot>
 
     <x-user.partials.navbar />
@@ -11,12 +11,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <div class="breadcrumbs mb-4"> <a href="index.html">Home</a>
+                        <div class="breadcrumbs mb-4"> <a href="{{ route('home') }}">Home</a>
                             <span class="mx-1">/</span> <a href="#!">Terms & Conditions</a>
                         </div>
                     </div>
                     <div class="col-lg-8 mx-auto mb-5 mb-lg-0">
-                        <h1 class="mb-4">Our Privacy Policy</h1>
+                        <h1 class="mb-4">Our Terms & Conditions</h1>
                         <div class="content">
                             <h4 id="responsibility-of-contributors">Responsibility of Contributors</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros,
