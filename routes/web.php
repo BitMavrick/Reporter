@@ -55,29 +55,25 @@ Route::get('super/articles/', [AdminController::class, 'articles'])->name('super
 Route::delete('super/article_delete', [AdminController::class, 'delete_blog'])->name('super.blog_delete');
 
 
-
-Route::get('category/', function () {
-    return view('user.category');
-});
-
+// Static routes
 Route::get('about/', function () {
     return view('user.about');
-});
+})->name('about');
 
 Route::get('privacy/', function () {
     return view('user.privacy-policy');
-});
+})->name('privacy');
 
-Route::get('contact/', function () {
-    return view('user.contact');
-});
-
-
+Route::get('terms/', function () {
+    return view('user.terms');
+})->name('terms');
 
 
+// Error Routes
 Route::get('404/', function () {
     return view('user.404');
 })->name('404');
 Route::fallback([DefaultController::class, 'error']);
 
+// Authentication Routes
 require __DIR__ . '/auth.php';
