@@ -52,7 +52,7 @@
 
                     <br>
 
-                    <h1>Improve your article quality,</h1>
+                    <h2>Improve your article quality,</h2>
                     <hr>
 
                     <div class="form-group mt-4">
