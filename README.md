@@ -77,7 +77,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@TheAlter72](https://twitter.com/TheAlter72) - hello.mehedi@outlook.com
+Mehedi Hasan - [@TheAlter72](https://twitter.com/TheAlter72) - hello.mehedi@outlook.com
 
 Project Link: [https://reporter73.000webhostapp.com](https://reporter73.000webhostapp.com)
 
