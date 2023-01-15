@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
 
-<!-- ABOUT THE PROJECT -->
-
 ## About Reporter
 
 [![Product Name Screen Shot][product-screenshot]](https://reporter73.000webhostapp.com/)
