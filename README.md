@@ -17,7 +17,7 @@ If you're ready to take your online presence to the next level, contact us today
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Here's the technologies that being used to build the application.
 
 -   [![Laravel][laravel.com]][laravel-url]
 -   [![Bootstrap][bootstrap.com]][bootstrap-url]
