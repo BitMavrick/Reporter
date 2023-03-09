@@ -10,7 +10,7 @@ use App\Models\Blog_tag;
 use App\Models\User_blog;
 use App\Models\User;
 use App\Models\Tag;
-use App\Models\profile;
+use App\Models\Profile;
 use App\Models\React;
 use Session;
 
