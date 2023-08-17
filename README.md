@@ -32,7 +32,7 @@ Here's the technologies that being used to build the application.
 Clone the repository and run the following commands to get started.
 
 ```
-  git clone https://github.com/TheAlter71/Reporter.git
+  git clone https://github.com/BitMavrick/Reporter.git
 ```
 
 I hope that you already have PHP, Laravel, Node, Composer and MySQL installed on your computer. If not, please install them first.
@@ -41,9 +41,9 @@ I hope that you already have PHP, Laravel, Node, Composer and MySQL installed on
 
 ### Installation
 
-_Now you have to setup your .env file with necessary informations. If you are good at laravel development then its very easy to you._
+_Now you have to set up your .env file with the necessary information. If you are good at Laravel development then it's very easy for you._
 
-1. Generate new key for the project
+1. Generate a new key for the project
 
 ```sh
 php artisan key:generate
@@ -61,7 +61,7 @@ composer update
 php artisan migrate:fresh
 ```
 
-4. Run application locally
+4. Run the application locally
 
 ```sh
 php artisan serve
@@ -71,7 +71,7 @@ php artisan serve
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+It is distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 
@@ -91,7 +91,7 @@ Project Link: [https://reporter73.000webhostapp.com](https://reporter73.000webho
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/TheAlter71/Reporter/stargazers
+[stars-url]: https://github.com/BitMavrick/Reporter/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
